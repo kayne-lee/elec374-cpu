@@ -16,7 +16,7 @@ module datapath (
     input ir_enable, 
     input y_enable, 
     input pc_increment, 
-    input r15_enable,
+    input r8_enable,
     input lo_enable,
     input hi_enable,
     input c_sign_extended_out,
@@ -57,14 +57,14 @@ wire r0_enable;
 // wire r5_enable;
 // wire r6_enable;
 // wire r7_enable;
-wire r8_enable;
+//wire r8_enable;
 wire r9_enable;
 wire r10_enable;
 wire r11_enable;
 wire r12_enable;
 wire r13_enable;
 wire r14_enable;
-// wire r15_enable;
+wire r15_enable;
 //wire y_enable;
 //wire hi_enable;
 //wire lo_enable;
@@ -143,14 +143,14 @@ reg_32_bit r4(clk, clr, r0_15in[4], bus, r4_data);
 reg_32_bit r5(clk, clr, r0_15in[5], bus, r5_data);
 reg_32_bit r6(clk, clr, r0_15in[6], bus, r6_data);
 reg_32_bit r7(clk, clr, r0_15in[7], bus, r7_data);
-reg_32_bit r8(clk, clr, r0_15in[8], bus, r8_data);
+reg_32_bit r8(clk, clr, r8_enable, bus, r8_data);
 reg_32_bit r9(clk, clr, r0_15in[9], bus, r9_data);
 reg_32_bit r10(clk, clr, r0_15in[10], bus, r10_data);
 reg_32_bit r11(clk, clr, r0_15in[11], bus, r11_data);
 reg_32_bit r12(clk, clr, r0_15in[12], bus, r12_data);
 reg_32_bit r13(clk, clr, r0_15in[13], bus, r13_data);
 reg_32_bit r14(clk, clr, r0_15in[14], bus, r14_data);
-reg_32_bit r15(clk, clr, r15_enable, bus, r15_data);    // FIXME: r15_enable is temporary for phase 2
+reg_32_bit r15(clk, clr, r0_15in[15], bus, r15_data); 
 
 reg_32_bit y(clk, clr, y_enable, bus, y_data);
 reg_32_bit hi(clk, clr, hi_enable, bus, hi_data);

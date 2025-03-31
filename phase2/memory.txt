@@ -43,3 +43,27 @@ mfhi:
 mflo:
   @0 0800ABCD //ldiLO, 0xabcd
   @1 C1000000 // mflo R2 
+ 
+ st case 1:
+098000B6   // ldi r3, 0xB6
+11800034  // st 0x34, R3, 0x34 = 25
+
+st case 2:
+@0 098000B6 // ldi R3, 0xB6
+@1 11980034 // st 0x34(R3), R3   , EA should be b6
+
+ld case 1 and 2:
+@0 02000054 // ld R4, 0x54       ; (0x54) = 0x97
+@1 03100063 // ld R6, 0x63(R2)   ; R2 = 0x78, and (0xDB) = 0x46
+
+ldi case 1 and 2:
+ @0 0A000054 // ldi R4, 0x54
+ @1 0B100063 // ldi R6, 0x63(R2)  ; R2 = 0x78
+
+jr case:
+@0 0C00000F // ldi r8, 0xf
+@1 AC000000 // jr r8
+
+jal case:
+ @0 0A80000F // ldi r5, 0xf       
+ @1 A2800000 // jal r5   

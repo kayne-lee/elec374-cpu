@@ -1,0 +1,1222 @@
+Analysis & Synthesis report for CPUDesign
+Mon Mar 31 13:13:26 2025
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Registers Packed Into Inferred Megafunctions
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for ram_512x32:ram_memory|altsyncram:memory_rtl_0|altsyncram_i6s1:auto_generated
+ 15. Parameter Settings for Inferred Entity Instance: ram_512x32:ram_memory|altsyncram:memory_rtl_0
+ 16. altsyncram Parameter Settings by Entity Instance
+ 17. Port Connectivity Checks: "alu:alu|rol:rol_op"
+ 18. Port Connectivity Checks: "alu:alu|ror:ror_op"
+ 19. Port Connectivity Checks: "alu:alu|sub:sub_op"
+ 20. Port Connectivity Checks: "alu:alu|add:add_op"
+ 21. Port Connectivity Checks: "encoder_32_to_5:select_encoder"
+ 22. Port Connectivity Checks: "select_encode_logic:select_encode"
+ 23. Port Connectivity Checks: "ram_512x32:ram_memory"
+ 24. Port Connectivity Checks: "reg_32_bit:mar"
+ 25. Post-Synthesis Netlist Statistics for Top Partition
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
+ 28. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                      ;
++---------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon Mar 31 13:13:25 2025           ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
+; Revision Name                   ; CPUDesign                                       ;
+; Top-level Entity Name           ; datapath                                        ;
+; Family                          ; Cyclone V                                       ;
+; Logic utilization (in ALMs)     ; N/A                                             ;
+; Total registers                 ; 860                                             ;
+; Total pins                      ; 128                                             ;
+; Total virtual pins              ; 0                                               ;
+; Total block memory bits         ; 16,384                                          ;
+; Total DSP Blocks                ; 0                                               ;
+; Total HSSI RX PCSs              ; 0                                               ;
+; Total HSSI PMA RX Deserializers ; 0                                               ;
+; Total HSSI TX PCSs              ; 0                                               ;
+; Total HSSI PMA TX Serializers   ; 0                                               ;
+; Total PLLs                      ; 0                                               ;
+; Total DLLs                      ; 0                                               ;
++---------------------------------+-------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CEBA4F23C7        ;                    ;
+; Top-level entity name                                                           ; datapath           ; CPUDesign          ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Optimization Technique                                                          ; Speed              ; Balanced           ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                             ;
++-----------------------------------------------+-----------------+-------------------------------------------------------+--------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path              ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                   ; Library ;
++-----------------------------------------------+-----------------+-------------------------------------------------------+--------------------------------------------------------------------------------+---------+
+; initram.mem                                   ; yes             ; User Unspecified File                                 ; C:/Users/21mw67/Downloads/phase1/initram.mem                                   ;         ;
+; select_encode_logic.v                         ; yes             ; User Verilog HDL File                                 ; C:/Users/21mw67/Downloads/phase1/select_encode_logic.v                         ;         ;
+; ram_512x32.v                                  ; yes             ; User Verilog HDL File                                 ; C:/Users/21mw67/Downloads/phase1/ram_512x32.v                                  ;         ;
+; io_ports.v                                    ; yes             ; User Verilog HDL File                                 ; C:/Users/21mw67/Downloads/phase1/io_ports.v                                    ;         ;
+; conff.v                                       ; yes             ; User Verilog HDL File                                 ; C:/Users/21mw67/Downloads/phase1/conff.v                                       ;         ;
+; add.v                                         ; yes             ; User Verilog HDL File                                 ; C:/Users/21mw67/Downloads/phase1/add.v                                         ;         ;
+; sub.v                                         ; yes             ; User Verilog HDL File                                 ; C:/Users/21mw67/Downloads/phase1/sub.v                                         ;         ;
+; mul.v                                         ; yes             ; User Verilog HDL File                                 ; C:/Users/21mw67/Downloads/phase1/mul.v                                         ;         ;
+; div.v                                         ; yes             ; User Verilog HDL File                                 ; C:/Users/21mw67/Downloads/phase1/div.v                                         ;         ;
+; alu.v                                         ; yes             ; User Verilog HDL File                                 ; C:/Users/21mw67/Downloads/phase1/alu.v                                         ;         ;
+; bus_mux_32_to_1.v                             ; yes             ; User Verilog HDL File                                 ; C:/Users/21mw67/Downloads/phase1/bus_mux_32_to_1.v                             ;         ;
+; encoder_32_to_5.v                             ; yes             ; User Verilog HDL File                                 ; C:/Users/21mw67/Downloads/phase1/encoder_32_to_5.v                             ;         ;
+; mdr_mux_2_to_1.v                              ; yes             ; User Verilog HDL File                                 ; C:/Users/21mw67/Downloads/phase1/mdr_mux_2_to_1.v                              ;         ;
+; datapath.v                                    ; yes             ; User Verilog HDL File                                 ; C:/Users/21mw67/Downloads/phase1/datapath.v                                    ;         ;
+; logical_ops.v                                 ; yes             ; User Verilog HDL File                                 ; C:/Users/21mw67/Downloads/phase1/logical_ops.v                                 ;         ;
+; rotate_ops.v                                  ; yes             ; User Verilog HDL File                                 ; C:/Users/21mw67/Downloads/phase1/rotate_ops.v                                  ;         ;
+; shift_ops.v                                   ; yes             ; User Verilog HDL File                                 ; C:/Users/21mw67/Downloads/phase1/shift_ops.v                                   ;         ;
+; registers.v                                   ; yes             ; User Verilog HDL File                                 ; C:/Users/21mw67/Downloads/phase1/registers.v                                   ;         ;
+; altsyncram.tdf                                ; yes             ; Megafunction                                          ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf               ;         ;
+; stratix_ram_block.inc                         ; yes             ; Megafunction                                          ; c:/intelfpga/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc        ;         ;
+; lpm_mux.inc                                   ; yes             ; Megafunction                                          ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_mux.inc                  ;         ;
+; lpm_decode.inc                                ; yes             ; Megafunction                                          ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_decode.inc               ;         ;
+; aglobal181.inc                                ; yes             ; Megafunction                                          ; c:/intelfpga/18.1/quartus/libraries/megafunctions/aglobal181.inc               ;         ;
+; a_rdenreg.inc                                 ; yes             ; Megafunction                                          ; c:/intelfpga/18.1/quartus/libraries/megafunctions/a_rdenreg.inc                ;         ;
+; altrom.inc                                    ; yes             ; Megafunction                                          ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altrom.inc                   ;         ;
+; altram.inc                                    ; yes             ; Megafunction                                          ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altram.inc                   ;         ;
+; altdpram.inc                                  ; yes             ; Megafunction                                          ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altdpram.inc                 ;         ;
+; db/altsyncram_i6s1.tdf                        ; yes             ; Auto-Generated Megafunction                           ; C:/Users/21mw67/Downloads/phase1/db/altsyncram_i6s1.tdf                        ;         ;
+; db/CPUDesign.ram0_ram_512x32_a5aecb6d.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/21mw67/Downloads/phase1/db/CPUDesign.ram0_ram_512x32_a5aecb6d.hdl.mif ;         ;
++-----------------------------------------------+-----------------+-------------------------------------------------------+--------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 4534      ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 6250      ;
+;     -- 7 input functions                    ; 534       ;
+;     -- 6 input functions                    ; 2174      ;
+;     -- 5 input functions                    ; 1954      ;
+;     -- 4 input functions                    ; 520       ;
+;     -- <=3 input functions                  ; 1068      ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 860       ;
+;                                             ;           ;
+; I/O pins                                    ; 128       ;
+; Total MLAB memory bits                      ; 0         ;
+; Total block memory bits                     ; 16384     ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 892       ;
+; Total fan-out                               ; 36747     ;
+; Average fan-out                             ; 4.97      ;
++---------------------------------------------+-----------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                              ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                    ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------+---------------------+--------------+
+; |datapath                                 ; 6250 (0)            ; 860 (0)                   ; 16384             ; 0          ; 128  ; 0            ; |datapath                                                                              ; datapath            ; work         ;
+;    |alu:alu|                              ; 5864 (324)          ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu                                                                      ; alu                 ; work         ;
+;       |add:add_op|                        ; 32 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op                                                           ; add                 ; work         ;
+;          |full_adder:fa10|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa10                                           ; full_adder          ; work         ;
+;          |full_adder:fa11|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa11                                           ; full_adder          ; work         ;
+;          |full_adder:fa12|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa12                                           ; full_adder          ; work         ;
+;          |full_adder:fa13|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa13                                           ; full_adder          ; work         ;
+;          |full_adder:fa14|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa14                                           ; full_adder          ; work         ;
+;          |full_adder:fa15|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa15                                           ; full_adder          ; work         ;
+;          |full_adder:fa16|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa16                                           ; full_adder          ; work         ;
+;          |full_adder:fa17|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa17                                           ; full_adder          ; work         ;
+;          |full_adder:fa18|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa18                                           ; full_adder          ; work         ;
+;          |full_adder:fa19|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa19                                           ; full_adder          ; work         ;
+;          |full_adder:fa1|                 ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa1                                            ; full_adder          ; work         ;
+;          |full_adder:fa20|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa20                                           ; full_adder          ; work         ;
+;          |full_adder:fa21|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa21                                           ; full_adder          ; work         ;
+;          |full_adder:fa22|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa22                                           ; full_adder          ; work         ;
+;          |full_adder:fa23|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa23                                           ; full_adder          ; work         ;
+;          |full_adder:fa24|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa24                                           ; full_adder          ; work         ;
+;          |full_adder:fa25|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa25                                           ; full_adder          ; work         ;
+;          |full_adder:fa26|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa26                                           ; full_adder          ; work         ;
+;          |full_adder:fa27|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa27                                           ; full_adder          ; work         ;
+;          |full_adder:fa28|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa28                                           ; full_adder          ; work         ;
+;          |full_adder:fa29|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa29                                           ; full_adder          ; work         ;
+;          |full_adder:fa31|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa31                                           ; full_adder          ; work         ;
+;          |full_adder:fa3|                 ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa3                                            ; full_adder          ; work         ;
+;          |full_adder:fa4|                 ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa4                                            ; full_adder          ; work         ;
+;          |full_adder:fa5|                 ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa5                                            ; full_adder          ; work         ;
+;          |full_adder:fa6|                 ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa6                                            ; full_adder          ; work         ;
+;          |full_adder:fa7|                 ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa7                                            ; full_adder          ; work         ;
+;          |full_adder:fa8|                 ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa8                                            ; full_adder          ; work         ;
+;          |full_adder:fa9|                 ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|add:add_op|full_adder:fa9                                            ; full_adder          ; work         ;
+;       |div:div_op|                        ; 4040 (4040)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|div:div_op                                                           ; div                 ; work         ;
+;       |logical_or:or_op|                  ; 30 (30)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|logical_or:or_op                                                     ; logical_or          ; work         ;
+;       |mul:mul_op|                        ; 974 (974)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|mul:mul_op                                                           ; mul                 ; work         ;
+;       |rol:rol_op|                        ; 116 (116)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|rol:rol_op                                                           ; rol                 ; work         ;
+;       |ror:ror_op|                        ; 152 (152)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|ror:ror_op                                                           ; ror                 ; work         ;
+;       |shl:shl_op|                        ; 38 (38)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|shl:shl_op                                                           ; shl                 ; work         ;
+;       |shr:shr_op|                        ; 17 (17)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|shr:shr_op                                                           ; shr                 ; work         ;
+;       |shra:shra_op|                      ; 49 (49)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|shra:shra_op                                                         ; shra                ; work         ;
+;       |sub:sub_op|                        ; 92 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op                                                           ; sub                 ; work         ;
+;          |add:add_op|                     ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op                                                ; add                 ; work         ;
+;             |full_adder:fa0|              ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa0                                 ; full_adder          ; work         ;
+;             |full_adder:fa10|             ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa10                                ; full_adder          ; work         ;
+;             |full_adder:fa11|             ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa11                                ; full_adder          ; work         ;
+;             |full_adder:fa12|             ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa12                                ; full_adder          ; work         ;
+;             |full_adder:fa13|             ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa13                                ; full_adder          ; work         ;
+;             |full_adder:fa14|             ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa14                                ; full_adder          ; work         ;
+;             |full_adder:fa15|             ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa15                                ; full_adder          ; work         ;
+;             |full_adder:fa16|             ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa16                                ; full_adder          ; work         ;
+;             |full_adder:fa17|             ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa17                                ; full_adder          ; work         ;
+;             |full_adder:fa18|             ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa18                                ; full_adder          ; work         ;
+;             |full_adder:fa19|             ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa19                                ; full_adder          ; work         ;
+;             |full_adder:fa1|              ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa1                                 ; full_adder          ; work         ;
+;             |full_adder:fa20|             ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa20                                ; full_adder          ; work         ;
+;             |full_adder:fa21|             ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa21                                ; full_adder          ; work         ;
+;             |full_adder:fa22|             ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa22                                ; full_adder          ; work         ;
+;             |full_adder:fa23|             ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa23                                ; full_adder          ; work         ;
+;             |full_adder:fa24|             ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa24                                ; full_adder          ; work         ;
+;             |full_adder:fa25|             ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa25                                ; full_adder          ; work         ;
+;             |full_adder:fa26|             ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa26                                ; full_adder          ; work         ;
+;             |full_adder:fa27|             ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa27                                ; full_adder          ; work         ;
+;             |full_adder:fa28|             ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa28                                ; full_adder          ; work         ;
+;             |full_adder:fa29|             ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa29                                ; full_adder          ; work         ;
+;             |full_adder:fa2|              ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa2                                 ; full_adder          ; work         ;
+;             |full_adder:fa30|             ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa30                                ; full_adder          ; work         ;
+;             |full_adder:fa31|             ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa31                                ; full_adder          ; work         ;
+;             |full_adder:fa3|              ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa3                                 ; full_adder          ; work         ;
+;             |full_adder:fa4|              ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa4                                 ; full_adder          ; work         ;
+;             |full_adder:fa5|              ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa5                                 ; full_adder          ; work         ;
+;             |full_adder:fa6|              ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa6                                 ; full_adder          ; work         ;
+;             |full_adder:fa7|              ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa7                                 ; full_adder          ; work         ;
+;             |full_adder:fa8|              ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa8                                 ; full_adder          ; work         ;
+;             |full_adder:fa9|              ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|alu:alu|sub:sub_op|add:add_op|full_adder:fa9                                 ; full_adder          ; work         ;
+;    |bus_mux_32_to_1:bus_mux|              ; 293 (293)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|bus_mux_32_to_1:bus_mux                                                      ; bus_mux_32_to_1     ; work         ;
+;    |c_sign_extended_reg:c_sign_extended|  ; 0 (0)               ; 19 (19)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|c_sign_extended_reg:c_sign_extended                                          ; c_sign_extended_reg ; work         ;
+;    |conff:conff|                          ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|conff:conff                                                                  ; conff               ; work         ;
+;    |encoder_32_to_5:select_encoder|       ; 20 (20)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|encoder_32_to_5:select_encoder                                               ; encoder_32_to_5     ; work         ;
+;    |inport:inport|                        ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|inport:inport                                                                ; inport              ; work         ;
+;    |outport:outport|                      ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|outport:outport                                                              ; outport             ; work         ;
+;    |pc_reg:pc|                            ; 33 (33)             ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|pc_reg:pc                                                                    ; pc_reg              ; work         ;
+;    |r0_reg:r0|                            ; 1 (0)               ; 32 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |datapath|r0_reg:r0                                                                    ; r0_reg              ; work         ;
+;       |reg_32_bit:r0_internal_reg|        ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|r0_reg:r0|reg_32_bit:r0_internal_reg                                         ; reg_32_bit          ; work         ;
+;    |ram_512x32:ram_memory|                ; 0 (0)               ; 0 (0)                     ; 16384             ; 0          ; 0    ; 0            ; |datapath|ram_512x32:ram_memory                                                        ; ram_512x32          ; work         ;
+;       |altsyncram:memory_rtl_0|           ; 0 (0)               ; 0 (0)                     ; 16384             ; 0          ; 0    ; 0            ; |datapath|ram_512x32:ram_memory|altsyncram:memory_rtl_0                                ; altsyncram          ; work         ;
+;          |altsyncram_i6s1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 16384             ; 0          ; 0    ; 0            ; |datapath|ram_512x32:ram_memory|altsyncram:memory_rtl_0|altsyncram_i6s1:auto_generated ; altsyncram_i6s1     ; work         ;
+;    |reg_32_bit:hi|                        ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:hi                                                                ; reg_32_bit          ; work         ;
+;    |reg_32_bit:ir|                        ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:ir                                                                ; reg_32_bit          ; work         ;
+;    |reg_32_bit:lo|                        ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:lo                                                                ; reg_32_bit          ; work         ;
+;    |reg_32_bit:mar|                       ; 1 (1)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:mar                                                               ; reg_32_bit          ; work         ;
+;    |reg_32_bit:mdr|                       ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:mdr                                                               ; reg_32_bit          ; work         ;
+;    |reg_32_bit:r10|                       ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:r10                                                               ; reg_32_bit          ; work         ;
+;    |reg_32_bit:r11|                       ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:r11                                                               ; reg_32_bit          ; work         ;
+;    |reg_32_bit:r12|                       ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:r12                                                               ; reg_32_bit          ; work         ;
+;    |reg_32_bit:r13|                       ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:r13                                                               ; reg_32_bit          ; work         ;
+;    |reg_32_bit:r14|                       ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:r14                                                               ; reg_32_bit          ; work         ;
+;    |reg_32_bit:r15|                       ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:r15                                                               ; reg_32_bit          ; work         ;
+;    |reg_32_bit:r1|                        ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:r1                                                                ; reg_32_bit          ; work         ;
+;    |reg_32_bit:r2|                        ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:r2                                                                ; reg_32_bit          ; work         ;
+;    |reg_32_bit:r3|                        ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:r3                                                                ; reg_32_bit          ; work         ;
+;    |reg_32_bit:r4|                        ; 2 (2)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:r4                                                                ; reg_32_bit          ; work         ;
+;    |reg_32_bit:r5|                        ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:r5                                                                ; reg_32_bit          ; work         ;
+;    |reg_32_bit:r6|                        ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:r6                                                                ; reg_32_bit          ; work         ;
+;    |reg_32_bit:r7|                        ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:r7                                                                ; reg_32_bit          ; work         ;
+;    |reg_32_bit:r8|                        ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:r8                                                                ; reg_32_bit          ; work         ;
+;    |reg_32_bit:r9|                        ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:r9                                                                ; reg_32_bit          ; work         ;
+;    |reg_32_bit:y|                         ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:y                                                                 ; reg_32_bit          ; work         ;
+;    |reg_32_bit:zhi|                       ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:zhi                                                               ; reg_32_bit          ; work         ;
+;    |reg_32_bit:zlo|                       ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |datapath|reg_32_bit:zlo                                                               ; reg_32_bit          ; work         ;
+;    |select_encode_logic:select_encode|    ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |datapath|select_encode_logic:select_encode                                            ; select_encode_logic ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                      ;
++-----------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+-----------------------------------------------+
+; Name                                                                                    ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF                                           ;
++-----------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+-----------------------------------------------+
+; ram_512x32:ram_memory|altsyncram:memory_rtl_0|altsyncram_i6s1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 512          ; 32           ; 512          ; 32           ; 16384 ; db/CPUDesign.ram0_ram_512x32_a5aecb6d.hdl.mif ;
++-----------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+-----------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; alu:alu|c[0]                                        ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[1]                                        ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[2]                                        ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[3]                                        ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[4]                                        ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[5]                                        ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[6]                                        ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[7]                                        ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[8]                                        ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[9]                                        ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[10]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[11]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[12]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[13]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[14]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[15]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[16]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[17]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[18]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[19]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[20]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[21]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[22]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[23]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[24]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[25]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[26]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[27]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[28]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[29]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[30]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[31]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[41]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[42]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[44]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[45]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[46]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[48]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[49]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[37]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[32]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[33]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[47]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[43]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[36]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[34]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[39]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[35]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[38]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[40]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[51]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[55]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[59]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[52]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[53]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[54]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[56]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[57]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[58]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[62]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[50]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[63]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[60]                                       ; alu:alu|Mux64       ; yes                    ;
+; alu:alu|c[61]                                       ; alu:alu|Mux64       ; yes                    ;
+; Number of user-specified and inferred latches = 64  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                    ;
++-----------------------------------------------+-------------------------------------------------------+
+; Register name                                 ; Reason for Removal                                    ;
++-----------------------------------------------+-------------------------------------------------------+
+; c_sign_extended_reg:c_sign_extended|q[19..31] ; Merged with c_sign_extended_reg:c_sign_extended|q[18] ;
+; Total Number of Removed Registers = 13        ;                                                       ;
++-----------------------------------------------+-------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 860   ;
+; Number of registers using Synchronous Clear  ; 809   ;
+; Number of registers using Synchronous Load   ; 64    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 841   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                      ;
++---------------------------------------+------------------------------------+------+
+; Register Name                         ; Megafunction                       ; Type ;
++---------------------------------------+------------------------------------+------+
+; ram_512x32:ram_memory|data_out[0..31] ; ram_512x32:ram_memory|memory_rtl_0 ; RAM  ;
++---------------------------------------+------------------------------------+------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+; 3:1                ; 64 bits   ; 128 LEs       ; 0 LEs                ; 128 LEs                ; Yes        ; |datapath|reg_32_bit:zhi|q[5]                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|outport:outport|q[0]                       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|reg_32_bit:ir|q[13]                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|r0_reg:r0|reg_32_bit:r0_internal_reg|q[31] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|reg_32_bit:r1|q[18]                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|reg_32_bit:r2|q[17]                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|reg_32_bit:r3|q[17]                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|reg_32_bit:r4|q[17]                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|reg_32_bit:r5|q[17]                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|reg_32_bit:r6|q[17]                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|reg_32_bit:r7|q[17]                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|reg_32_bit:r8|q[17]                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|reg_32_bit:r9|q[17]                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|reg_32_bit:r10|q[17]                       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|reg_32_bit:r11|q[17]                       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|reg_32_bit:r12|q[17]                       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|reg_32_bit:r13|q[24]                       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|reg_32_bit:r14|q[27]                       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|reg_32_bit:r15|q[26]                       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|reg_32_bit:hi|q[4]                         ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|reg_32_bit:lo|q[11]                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|pc_reg:pc|q[12]                            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|inport:inport|q[5]                         ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |datapath|reg_32_bit:mar|q[8]                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|reg_32_bit:y|q[19]                         ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |datapath|reg_32_bit:mdr|q[5]                        ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |datapath|alu:alu|rol:rol_op|ShiftLeft0              ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |datapath|alu:alu|rol:rol_op|ShiftLeft0              ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |datapath|alu:alu|rol:rol_op|ShiftLeft0              ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |datapath|alu:alu|ror:ror_op|ShiftRight0             ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |datapath|alu:alu|ror:ror_op|ShiftRight0             ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |datapath|alu:alu|ror:ror_op|ShiftRight0             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |datapath|alu:alu|ror:ror_op|ShiftRight0             ;
+; 4:1                ; 20 bits   ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |datapath|alu:alu|ror:ror_op|ShiftRight0             ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; No         ; |datapath|alu:alu|mul:mul_op|Mux4                    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |datapath|alu:alu|shra:shra_op|ShiftLeft0            ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |datapath|alu:alu|shra:shra_op|ShiftLeft0            ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |datapath|alu:alu|shra:shra_op|ShiftLeft0            ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |datapath|alu:alu|shra:shra_op|ShiftLeft0            ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |datapath|alu:alu|rol:rol_op|ShiftRight0             ;
+; 4:1                ; 20 bits   ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |datapath|alu:alu|rol:rol_op|ShiftRight0             ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |datapath|alu:alu|ror:ror_op|ShiftLeft0              ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |datapath|alu:alu|ror:ror_op|ShiftLeft0              ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |datapath|alu:alu|ror:ror_op|ShiftLeft0              ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |datapath|alu:alu|ror:ror_op|ShiftLeft0              ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |datapath|alu:alu|shra:shra_op|ShiftLeft0            ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |datapath|alu:alu|shra:shra_op|ShiftLeft0            ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |datapath|alu:alu|shl:shl_op|ShiftLeft0              ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |datapath|alu:alu|shl:shl_op|ShiftLeft0              ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |datapath|alu:alu|shra:shra_op|ShiftLeft0            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |datapath|alu:alu|shra:shra_op|ShiftLeft0            ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |datapath|alu:alu|rol:rol_op|ShiftRight0             ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |datapath|alu:alu|rol:rol_op|ShiftRight0             ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |datapath|alu:alu|rol:rol_op|ShiftRight0             ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |datapath|alu:alu|shl:shl_op|ShiftLeft0              ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |datapath|alu:alu|shr:shr_op|ShiftRight0             ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |datapath|alu:alu|ror:ror_op|ShiftLeft0              ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |datapath|alu:alu|ror:ror_op|ShiftLeft0              ;
+; 32:1               ; 18 bits   ; 378 LEs       ; 324 LEs              ; 54 LEs                 ; No         ; |datapath|bus_mux_32_to_1:bus_mux|Mux22              ;
+; 6:1                ; 30 bits   ; 120 LEs       ; 120 LEs              ; 0 LEs                  ; No         ; |datapath|alu:alu|mul:mul_op|Mux255                  ;
+; 6:1                ; 30 bits   ; 120 LEs       ; 120 LEs              ; 0 LEs                  ; No         ; |datapath|alu:alu|mul:mul_op|Mux193                  ;
+; 6:1                ; 30 bits   ; 120 LEs       ; 120 LEs              ; 0 LEs                  ; No         ; |datapath|alu:alu|mul:mul_op|Mux104                  ;
+; 6:1                ; 30 bits   ; 120 LEs       ; 120 LEs              ; 0 LEs                  ; No         ; |datapath|alu:alu|mul:mul_op|Mux40                   ;
+; 6:1                ; 31 bits   ; 124 LEs       ; 124 LEs              ; 0 LEs                  ; No         ; |datapath|alu:alu|mul:mul_op|Mux498                  ;
+; 6:1                ; 30 bits   ; 120 LEs       ; 120 LEs              ; 0 LEs                  ; No         ; |datapath|alu:alu|mul:mul_op|Mux438                  ;
+; 6:1                ; 30 bits   ; 120 LEs       ; 120 LEs              ; 0 LEs                  ; No         ; |datapath|alu:alu|mul:mul_op|Mux368                  ;
+; 6:1                ; 30 bits   ; 120 LEs       ; 120 LEs              ; 0 LEs                  ; No         ; |datapath|alu:alu|mul:mul_op|Mux319                  ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |datapath|alu:alu|ror:ror_op|ShiftLeft0              ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |datapath|alu:alu|rol:rol_op|ShiftRight0             ;
+; 8:1                ; 30 bits   ; 150 LEs       ; 120 LEs              ; 30 LEs                 ; No         ; |datapath|alu:alu|mul:mul_op|Mux287                  ;
+; 8:1                ; 30 bits   ; 150 LEs       ; 120 LEs              ; 30 LEs                 ; No         ; |datapath|alu:alu|mul:mul_op|Mux226                  ;
+; 8:1                ; 30 bits   ; 150 LEs       ; 120 LEs              ; 30 LEs                 ; No         ; |datapath|alu:alu|mul:mul_op|Mux136                  ;
+; 8:1                ; 30 bits   ; 150 LEs       ; 120 LEs              ; 30 LEs                 ; No         ; |datapath|alu:alu|mul:mul_op|Mux87                   ;
+; 8:1                ; 30 bits   ; 150 LEs       ; 120 LEs              ; 30 LEs                 ; No         ; |datapath|alu:alu|mul:mul_op|Mux486                  ;
+; 8:1                ; 30 bits   ; 150 LEs       ; 120 LEs              ; 30 LEs                 ; No         ; |datapath|alu:alu|mul:mul_op|Mux400                  ;
+; 8:1                ; 30 bits   ; 150 LEs       ; 120 LEs              ; 30 LEs                 ; No         ; |datapath|alu:alu|mul:mul_op|Mux342                  ;
+; 23:1               ; 30 bits   ; 450 LEs       ; 270 LEs              ; 180 LEs                ; No         ; |datapath|alu:alu|Mux23                              ;
+; 23:1               ; 32 bits   ; 480 LEs       ; 320 LEs              ; 160 LEs                ; No         ; |datapath|alu:alu|Mux41                              ;
+; 25:1               ; 14 bits   ; 224 LEs       ; 224 LEs              ; 0 LEs                  ; No         ; |datapath|bus_mux_32_to_1:bus_mux|Mux12              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Source assignments for ram_512x32:ram_memory|altsyncram:memory_rtl_0|altsyncram_i6s1:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------+
+; Assignment                      ; Value              ; From ; To                                    ;
++---------------------------------+--------------------+------+---------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                     ;
++---------------------------------+--------------------+------+---------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ram_512x32:ram_memory|altsyncram:memory_rtl_0      ;
++------------------------------------+-----------------------------------------------+----------------+
+; Parameter Name                     ; Value                                         ; Type           ;
++------------------------------------+-----------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                             ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                            ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                           ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                            ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                           ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                             ; Untyped        ;
+; OPERATION_MODE                     ; DUAL_PORT                                     ; Untyped        ;
+; WIDTH_A                            ; 32                                            ; Untyped        ;
+; WIDTHAD_A                          ; 9                                             ; Untyped        ;
+; NUMWORDS_A                         ; 512                                           ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                  ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                          ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                          ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                          ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                          ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                          ; Untyped        ;
+; WIDTH_B                            ; 32                                            ; Untyped        ;
+; WIDTHAD_B                          ; 9                                             ; Untyped        ;
+; NUMWORDS_B                         ; 512                                           ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                        ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                        ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                        ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK0                                        ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                  ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                        ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                          ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                          ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                          ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                          ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                          ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                          ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                             ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                             ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                          ; Untyped        ;
+; BYTE_SIZE                          ; 8                                             ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                      ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                          ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                          ; Untyped        ;
+; INIT_FILE                          ; db/CPUDesign.ram0_ram_512x32_a5aecb6d.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                        ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                             ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                        ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                        ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                        ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                        ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                               ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                               ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                         ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                         ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                             ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone V                                     ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_i6s1                               ; Untyped        ;
++------------------------------------+-----------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                          ;
++-------------------------------------------+-----------------------------------------------+
+; Name                                      ; Value                                         ;
++-------------------------------------------+-----------------------------------------------+
+; Number of entity instances                ; 1                                             ;
+; Entity Instance                           ; ram_512x32:ram_memory|altsyncram:memory_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                     ;
+;     -- WIDTH_A                            ; 32                                            ;
+;     -- NUMWORDS_A                         ; 512                                           ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                  ;
+;     -- WIDTH_B                            ; 32                                            ;
+;     -- NUMWORDS_B                         ; 512                                           ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                        ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                  ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                          ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                      ;
++-------------------------------------------+-----------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu:alu|rol:rol_op"                                                                                                                                                               ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                            ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; b    ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (5 bits) it drives.  The 27 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu:alu|ror:ror_op"                                                                                                                                                               ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                            ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; b    ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (5 bits) it drives.  The 27 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu:alu|sub:sub_op"                                                                                                                                                                   ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                                                            ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; cin     ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; cin[-1] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; cout    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu:alu|add:add_op"                                                                                                                                                                   ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                                                            ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; cin     ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; cin[-1] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; cout    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
++---------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "encoder_32_to_5:select_encoder" ;
++--------------------+-------+----------+--------------------+
+; Port               ; Type  ; Severity ; Details            ;
++--------------------+-------+----------+--------------------+
+; encoder_in[31..24] ; Input ; Info     ; Stuck at GND       ;
++--------------------+-------+----------+--------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "select_encode_logic:select_encode"                                                        ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; r0_15in[8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ram_512x32:ram_memory"                                                                                                                                                            ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                            ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; addr ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (9 bits) it drives.  The 23 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "reg_32_bit:mar"                                                                         ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; q[31..9] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 860                         ;
+;     ENA SCLR          ; 777                         ;
+;     ENA SCLR SLD      ; 32                          ;
+;     ENA SLD           ; 32                          ;
+;     plain             ; 19                          ;
+; arriav_lcell_comb     ; 6250                        ;
+;     arith             ; 1215                        ;
+;         0 data inputs ; 32                          ;
+;         1 data inputs ; 106                         ;
+;         2 data inputs ; 60                          ;
+;         3 data inputs ; 51                          ;
+;         4 data inputs ; 35                          ;
+;         5 data inputs ; 931                         ;
+;     extend            ; 534                         ;
+;         7 data inputs ; 534                         ;
+;     normal            ; 4229                        ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 205                         ;
+;         3 data inputs ; 337                         ;
+;         4 data inputs ; 483                         ;
+;         5 data inputs ; 1023                        ;
+;         6 data inputs ; 2174                        ;
+;     shared            ; 272                         ;
+;         2 data inputs ; 20                          ;
+;         3 data inputs ; 250                         ;
+;         4 data inputs ; 2                           ;
+; boundary_port         ; 128                         ;
+; stratixv_ram_block    ; 32                          ;
+;                       ;                             ;
+; Max LUT depth         ; 153.00                      ;
+; Average LUT depth     ; 110.10                      ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:42     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+    Info: Processing started: Mon Mar 31 13:12:32 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPUDesign -c CPUDesign
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file ldi_tb.v
+    Info (12023): Found entity 1: ldi_tb File: C:/Users/21mw67/Downloads/phase1/ldi_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file ld_tb.v
+    Info (12023): Found entity 1: ld_tb File: C:/Users/21mw67/Downloads/phase1/ld_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file st_tb.v
+    Info (12023): Found entity 1: st_tb File: C:/Users/21mw67/Downloads/phase1/st_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file jal_tb.v
+    Info (12023): Found entity 1: jal_tb File: C:/Users/21mw67/Downloads/phase1/jal_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file jr_tb.v
+    Info (12023): Found entity 1: jr_tb File: C:/Users/21mw67/Downloads/phase1/jr_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file andi_tb.v
+    Info (12023): Found entity 1: andi_tb File: C:/Users/21mw67/Downloads/phase1/andi_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file select_encode_logic_tb.v
+    Info (12023): Found entity 1: select_encode_logic_tb File: C:/Users/21mw67/Downloads/phase1/select_encode_logic_tb.v Line: 3
+Info (12021): Found 2 design units, including 2 entities, in source file select_encode_logic.v
+    Info (12023): Found entity 1: select_encode_logic File: C:/Users/21mw67/Downloads/phase1/select_encode_logic.v Line: 1
+    Info (12023): Found entity 2: decoder_4_16 File: C:/Users/21mw67/Downloads/phase1/select_encode_logic.v Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file ram_512x32.v
+    Info (12023): Found entity 1: ram_512x32 File: C:/Users/21mw67/Downloads/phase1/ram_512x32.v Line: 1
+Info (12021): Found 2 design units, including 2 entities, in source file io_ports.v
+    Info (12023): Found entity 1: outport File: C:/Users/21mw67/Downloads/phase1/io_ports.v Line: 1
+    Info (12023): Found entity 2: inport File: C:/Users/21mw67/Downloads/phase1/io_ports.v Line: 22
+Info (12021): Found 2 design units, including 2 entities, in source file conff.v
+    Info (12023): Found entity 1: conff File: C:/Users/21mw67/Downloads/phase1/conff.v Line: 1
+    Info (12023): Found entity 2: decoder2to4 File: C:/Users/21mw67/Downloads/phase1/conff.v Line: 30
+Info (12021): Found 1 design units, including 1 entities, in source file de0_cv_golden_top.v
+    Info (12023): Found entity 1: DE0_CV_golden_top File: C:/Users/21mw67/Downloads/phase1/DE0_CV_golden_top.v Line: 54
+Info (12021): Found 2 design units, including 2 entities, in source file add.v
+    Info (12023): Found entity 1: full_adder File: C:/Users/21mw67/Downloads/phase1/add.v Line: 1
+    Info (12023): Found entity 2: add File: C:/Users/21mw67/Downloads/phase1/add.v Line: 17
+Info (12021): Found 1 design units, including 1 entities, in source file sub.v
+    Info (12023): Found entity 1: sub File: C:/Users/21mw67/Downloads/phase1/sub.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file mul.v
+    Info (12023): Found entity 1: mul File: C:/Users/21mw67/Downloads/phase1/mul.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file div.v
+    Info (12023): Found entity 1: div File: C:/Users/21mw67/Downloads/phase1/div.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu.v
+    Info (12023): Found entity 1: alu File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file bus_mux_32_to_1.v
+    Info (12023): Found entity 1: bus_mux_32_to_1 File: C:/Users/21mw67/Downloads/phase1/bus_mux_32_to_1.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file encoder_32_to_5.v
+    Info (12023): Found entity 1: encoder_32_to_5 File: C:/Users/21mw67/Downloads/phase1/encoder_32_to_5.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mdr_mux_2_to_1.v
+    Info (12023): Found entity 1: mdr_mux_2_to_1 File: C:/Users/21mw67/Downloads/phase1/mdr_mux_2_to_1.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file datapath.v
+    Info (12023): Found entity 1: datapath File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 1
+Info (12021): Found 4 design units, including 4 entities, in source file logical_ops.v
+    Info (12023): Found entity 1: logical_and File: C:/Users/21mw67/Downloads/phase1/logical_ops.v Line: 1
+    Info (12023): Found entity 2: logical_or File: C:/Users/21mw67/Downloads/phase1/logical_ops.v Line: 8
+    Info (12023): Found entity 3: logical_neg File: C:/Users/21mw67/Downloads/phase1/logical_ops.v Line: 15
+    Info (12023): Found entity 4: logical_not File: C:/Users/21mw67/Downloads/phase1/logical_ops.v Line: 22
+Info (12021): Found 2 design units, including 2 entities, in source file rotate_ops.v
+    Info (12023): Found entity 1: rol File: C:/Users/21mw67/Downloads/phase1/rotate_ops.v Line: 2
+    Info (12023): Found entity 2: ror File: C:/Users/21mw67/Downloads/phase1/rotate_ops.v Line: 12
+Info (12021): Found 3 design units, including 3 entities, in source file shift_ops.v
+    Info (12023): Found entity 1: shr File: C:/Users/21mw67/Downloads/phase1/shift_ops.v Line: 2
+    Info (12023): Found entity 2: shra File: C:/Users/21mw67/Downloads/phase1/shift_ops.v Line: 10
+    Info (12023): Found entity 3: shl File: C:/Users/21mw67/Downloads/phase1/shift_ops.v Line: 25
+Info (12021): Found 4 design units, including 4 entities, in source file registers.v
+    Info (12023): Found entity 1: reg_32_bit File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 1
+    Info (12023): Found entity 2: c_sign_extended_reg File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 22
+    Info (12023): Found entity 3: pc_reg File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 39
+    Info (12023): Found entity 4: r0_reg File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 60
+Info (12021): Found 1 design units, including 1 entities, in source file and_tb.v
+    Info (12023): Found entity 1: and_tb File: C:/Users/21mw67/Downloads/phase1/and_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file add_tb.v
+    Info (12023): Found entity 1: add_tb File: C:/Users/21mw67/Downloads/phase1/add_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file mul_tb.v
+    Info (12023): Found entity 1: mul_tb File: C:/Users/21mw67/Downloads/phase1/mul_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file not_tb.v
+    Info (12023): Found entity 1: not_tb File: C:/Users/21mw67/Downloads/phase1/not_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file shl_tb.v
+    Info (12023): Found entity 1: shl_tb File: C:/Users/21mw67/Downloads/phase1/shl_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file div_tb.v
+    Info (12023): Found entity 1: div_tb File: C:/Users/21mw67/Downloads/phase1/div_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file neg_tb.v
+    Info (12023): Found entity 1: neg_tb File: C:/Users/21mw67/Downloads/phase1/neg_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file or_tb.v
+    Info (12023): Found entity 1: or_tb File: C:/Users/21mw67/Downloads/phase1/or_tb.v Line: 241
+Info (12021): Found 1 design units, including 1 entities, in source file rol_tb.v
+    Info (12023): Found entity 1: rol_tb File: C:/Users/21mw67/Downloads/phase1/rol_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file ror_tb.v
+    Info (12023): Found entity 1: ror_tb File: C:/Users/21mw67/Downloads/phase1/ror_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file shr_tb.v
+    Info (12023): Found entity 1: shr_tb File: C:/Users/21mw67/Downloads/phase1/shr_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file shra_tb.v
+    Info (12023): Found entity 1: shra_tb File: C:/Users/21mw67/Downloads/phase1/shra_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file sub_tb.v
+    Info (12023): Found entity 1: sub_tb File: C:/Users/21mw67/Downloads/phase1/sub_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file addi_tb.v
+    Info (12023): Found entity 1: addi_tb File: C:/Users/21mw67/Downloads/phase1/addi_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file branch_tb.v
+    Info (12023): Found entity 1: branch_tb File: C:/Users/21mw67/Downloads/phase1/branch_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file out_tb.v
+    Info (12023): Found entity 1: out_tb File: C:/Users/21mw67/Downloads/phase1/out_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file in_tb.v
+    Info (12023): Found entity 1: in_tb File: C:/Users/21mw67/Downloads/phase1/in_tb.v Line: 3
+Warning (12019): Can't analyze file -- file andi.v is missing
+Info (12021): Found 1 design units, including 1 entities, in source file ori_tb.v
+    Info (12023): Found entity 1: ori_tb File: C:/Users/21mw67/Downloads/phase1/ori_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file mfhi_tb.v
+    Info (12023): Found entity 1: mfhi_tb File: C:/Users/21mw67/Downloads/phase1/mfhi_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file mflo_tb.v
+    Info (12023): Found entity 1: mflo_tb File: C:/Users/21mw67/Downloads/phase1/mflo_tb.v Line: 3
+Warning (10236): Verilog HDL Implicit Net warning at ldi_tb.v(71): created implicit net for "con_out" File: C:/Users/21mw67/Downloads/phase1/ldi_tb.v Line: 71
+Warning (10236): Verilog HDL Implicit Net warning at ld_tb.v(71): created implicit net for "con_out" File: C:/Users/21mw67/Downloads/phase1/ld_tb.v Line: 71
+Warning (10236): Verilog HDL Implicit Net warning at st_tb.v(71): created implicit net for "con_out" File: C:/Users/21mw67/Downloads/phase1/st_tb.v Line: 71
+Warning (10236): Verilog HDL Implicit Net warning at jal_tb.v(71): created implicit net for "con_out" File: C:/Users/21mw67/Downloads/phase1/jal_tb.v Line: 71
+Warning (10236): Verilog HDL Implicit Net warning at jr_tb.v(71): created implicit net for "con_out" File: C:/Users/21mw67/Downloads/phase1/jr_tb.v Line: 71
+Warning (10236): Verilog HDL Implicit Net warning at andi_tb.v(71): created implicit net for "con_out" File: C:/Users/21mw67/Downloads/phase1/andi_tb.v Line: 71
+Warning (10236): Verilog HDL Implicit Net warning at alu.v(28): created implicit net for "cout" File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 28
+Warning (10236): Verilog HDL Implicit Net warning at addi_tb.v(71): created implicit net for "con_out" File: C:/Users/21mw67/Downloads/phase1/addi_tb.v Line: 71
+Warning (10236): Verilog HDL Implicit Net warning at branch_tb.v(71): created implicit net for "con_out" File: C:/Users/21mw67/Downloads/phase1/branch_tb.v Line: 71
+Warning (10236): Verilog HDL Implicit Net warning at out_tb.v(75): created implicit net for "con_out" File: C:/Users/21mw67/Downloads/phase1/out_tb.v Line: 75
+Warning (10236): Verilog HDL Implicit Net warning at in_tb.v(75): created implicit net for "con_out" File: C:/Users/21mw67/Downloads/phase1/in_tb.v Line: 75
+Warning (10236): Verilog HDL Implicit Net warning at ori_tb.v(71): created implicit net for "con_out" File: C:/Users/21mw67/Downloads/phase1/ori_tb.v Line: 71
+Warning (10236): Verilog HDL Implicit Net warning at mfhi_tb.v(71): created implicit net for "con_out" File: C:/Users/21mw67/Downloads/phase1/mfhi_tb.v Line: 71
+Warning (10236): Verilog HDL Implicit Net warning at mflo_tb.v(71): created implicit net for "con_out" File: C:/Users/21mw67/Downloads/phase1/mflo_tb.v Line: 71
+Info (12127): Elaborating entity "datapath" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at datapath.v(80): object "r0_out" assigned a value but never read File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 80
+Warning (10036): Verilog HDL or VHDL warning at datapath.v(81): object "r1_out" assigned a value but never read File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 81
+Warning (10036): Verilog HDL or VHDL warning at datapath.v(88): object "r8_out" assigned a value but never read File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 88
+Warning (10036): Verilog HDL or VHDL warning at datapath.v(89): object "r9_out" assigned a value but never read File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 89
+Warning (10036): Verilog HDL or VHDL warning at datapath.v(90): object "r10_out" assigned a value but never read File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 90
+Warning (10036): Verilog HDL or VHDL warning at datapath.v(91): object "r11_out" assigned a value but never read File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 91
+Warning (10036): Verilog HDL or VHDL warning at datapath.v(92): object "r12_out" assigned a value but never read File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 92
+Warning (10036): Verilog HDL or VHDL warning at datapath.v(93): object "r13_out" assigned a value but never read File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 93
+Warning (10036): Verilog HDL or VHDL warning at datapath.v(94): object "r14_out" assigned a value but never read File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 94
+Warning (10036): Verilog HDL or VHDL warning at datapath.v(95): object "r15_out" assigned a value but never read File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 95
+Warning (10036): Verilog HDL or VHDL warning at datapath.v(97): object "y_out" assigned a value but never read File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 97
+Info (12128): Elaborating entity "r0_reg" for hierarchy "r0_reg:r0" File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 138
+Info (12128): Elaborating entity "reg_32_bit" for hierarchy "r0_reg:r0|reg_32_bit:r0_internal_reg" File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 78
+Info (12128): Elaborating entity "c_sign_extended_reg" for hierarchy "c_sign_extended_reg:c_sign_extended" File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 163
+Info (12128): Elaborating entity "pc_reg" for hierarchy "pc_reg:pc" File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 164
+Info (12128): Elaborating entity "ram_512x32" for hierarchy "ram_512x32:ram_memory" File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 173
+Info (12128): Elaborating entity "inport" for hierarchy "inport:inport" File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 177
+Info (12128): Elaborating entity "outport" for hierarchy "outport:outport" File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 178
+Info (12128): Elaborating entity "mdr_mux_2_to_1" for hierarchy "mdr_mux_2_to_1:mdr_mux" File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 187
+Info (12128): Elaborating entity "conff" for hierarchy "conff:conff" File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 195
+Warning (10235): Verilog HDL Always Construct warning at conff.v(24): variable "orGate" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/21mw67/Downloads/phase1/conff.v Line: 24
+Info (12128): Elaborating entity "decoder2to4" for hierarchy "conff:conff|decoder2to4:decoder1" File: C:/Users/21mw67/Downloads/phase1/conff.v Line: 12
+Info (12128): Elaborating entity "select_encode_logic" for hierarchy "select_encode_logic:select_encode" File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 210
+Info (12128): Elaborating entity "decoder_4_16" for hierarchy "select_encode_logic:select_encode|decoder_4_16:dec_4_16" File: C:/Users/21mw67/Downloads/phase1/select_encode_logic.v Line: 18
+Info (12128): Elaborating entity "encoder_32_to_5" for hierarchy "encoder_32_to_5:select_encoder" File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 247
+Warning (10762): Verilog HDL Case Statement warning at encoder_32_to_5.v(7): can't check case statement for completeness because the case expression has too many possible states File: C:/Users/21mw67/Downloads/phase1/encoder_32_to_5.v Line: 7
+Info (10264): Verilog HDL Case Statement information at encoder_32_to_5.v(7): all case item expressions in this case statement are onehot File: C:/Users/21mw67/Downloads/phase1/encoder_32_to_5.v Line: 7
+Info (12128): Elaborating entity "alu" for hierarchy "alu:alu" File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 256
+Warning (10270): Verilog HDL Case Statement warning at alu.v(67): incomplete case statement has no default case item File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Warning (10240): Verilog HDL Always Construct warning at alu.v(67): inferring latch(es) for variable "c", which holds its previous value in one or more paths through the always construct File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[0]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[1]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[2]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[3]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[4]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[5]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[6]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[7]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[8]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[9]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[10]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[11]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[12]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[13]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[14]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[15]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[16]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[17]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[18]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[19]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[20]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[21]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[22]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[23]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[24]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[25]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[26]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[27]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[28]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[29]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[30]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[31]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[32]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[33]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[34]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[35]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[36]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[37]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[38]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[39]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[40]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[41]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[42]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[43]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[44]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[45]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[46]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[47]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[48]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[49]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[50]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[51]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[52]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[53]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[54]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[55]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[56]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[57]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[58]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[59]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[60]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[61]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[62]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (10041): Inferred latch for "c[63]" at alu.v(67) File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+Info (12128): Elaborating entity "logical_and" for hierarchy "alu:alu|logical_and:and_op" File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 25
+Info (12128): Elaborating entity "logical_or" for hierarchy "alu:alu|logical_or:or_op" File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 26
+Info (12128): Elaborating entity "add" for hierarchy "alu:alu|add:add_op" File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 27
+Info (12128): Elaborating entity "full_adder" for hierarchy "alu:alu|add:add_op|full_adder:fa0" File: C:/Users/21mw67/Downloads/phase1/add.v Line: 29
+Info (12128): Elaborating entity "sub" for hierarchy "alu:alu|sub:sub_op" File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 28
+Info (12128): Elaborating entity "mul" for hierarchy "alu:alu|mul:mul_op" File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 29
+Warning (10199): Verilog HDL Case Statement warning at mul.v(31): case item expression never matches the case expression File: C:/Users/21mw67/Downloads/phase1/mul.v Line: 31
+Warning (10199): Verilog HDL Case Statement warning at mul.v(32): case item expression never matches the case expression File: C:/Users/21mw67/Downloads/phase1/mul.v Line: 32
+Warning (10199): Verilog HDL Case Statement warning at mul.v(34): case item expression never matches the case expression File: C:/Users/21mw67/Downloads/phase1/mul.v Line: 34
+Info (12128): Elaborating entity "div" for hierarchy "alu:alu|div:div_op" File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 30
+Info (12128): Elaborating entity "shr" for hierarchy "alu:alu|shr:shr_op" File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 31
+Info (12128): Elaborating entity "shra" for hierarchy "alu:alu|shra:shra_op" File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 32
+Info (12128): Elaborating entity "shl" for hierarchy "alu:alu|shl:shl_op" File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 33
+Info (12128): Elaborating entity "ror" for hierarchy "alu:alu|ror:ror_op" File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 34
+Info (12128): Elaborating entity "rol" for hierarchy "alu:alu|rol:rol_op" File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 35
+Info (12128): Elaborating entity "logical_neg" for hierarchy "alu:alu|logical_neg:neg_op" File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 36
+Info (12128): Elaborating entity "logical_not" for hierarchy "alu:alu|logical_not:not_op" File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 37
+Info (12128): Elaborating entity "bus_mux_32_to_1" for hierarchy "bus_mux_32_to_1:bus_mux" File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 286
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "ram_512x32:ram_memory|memory_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 9
+        Info (286033): Parameter NUMWORDS_A set to 512
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 9
+        Info (286033): Parameter NUMWORDS_B set to 512
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/CPUDesign.ram0_ram_512x32_a5aecb6d.hdl.mif
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+Info (12130): Elaborated megafunction instantiation "ram_512x32:ram_memory|altsyncram:memory_rtl_0"
+Info (12133): Instantiated megafunction "ram_512x32:ram_memory|altsyncram:memory_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "9"
+    Info (12134): Parameter "NUMWORDS_A" = "512"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "9"
+    Info (12134): Parameter "NUMWORDS_B" = "512"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/CPUDesign.ram0_ram_512x32_a5aecb6d.hdl.mif"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_i6s1.tdf
+    Info (12023): Found entity 1: altsyncram_i6s1 File: C:/Users/21mw67/Downloads/phase1/db/altsyncram_i6s1.tdf Line: 27
+Warning (12241): 5 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch alu:alu|c[0] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[30] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[1] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[30] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[2] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[3] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[4] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[5] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[6] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[7] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[8] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[9] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[10] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[11] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[12] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[13] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[14] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[15] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[16] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[17] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[18] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[19] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[20] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[21] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[22] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[23] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[24] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[25] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[26] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[27] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[28] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[29] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[30] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[31] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[31] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[41] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[42] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[44] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[45] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[46] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[48] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[49] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[37] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[32] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[33] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[47] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[43] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[36] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[34] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[39] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[35] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[38] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[40] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[51] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[55] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[59] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[52] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[53] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[54] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[56] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[57] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[58] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[62] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[50] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[63] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[60] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Warning (13012): Latch alu:alu|c[61] has unsafe behavior File: C:/Users/21mw67/Downloads/phase1/alu.v Line: 67
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_32_bit:ir|q[29] File: C:/Users/21mw67/Downloads/phase1/registers.v Line: 13
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/21mw67/Downloads/phase1/output_files/CPUDesign.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "con_enable" File: C:/Users/21mw67/Downloads/phase1/datapath.v Line: 25
+Info (21057): Implemented 7238 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 63 input pins
+    Info (21059): Implemented 65 output pins
+    Info (21061): Implemented 7078 logic cells
+    Info (21064): Implemented 32 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 165 warnings
+    Info: Peak virtual memory: 4894 megabytes
+    Info: Processing ended: Mon Mar 31 13:13:26 2025
+    Info: Elapsed time: 00:00:54
+    Info: Total CPU time (on all processors): 00:00:47
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/21mw67/Downloads/phase1/output_files/CPUDesign.map.smsg.
+
+

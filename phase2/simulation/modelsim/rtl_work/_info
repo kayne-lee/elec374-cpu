@@ -1,0 +1,692 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/21mw67/Downloads/phase1/simulation/modelsim
+vadd
+Z1 !s110 1743441706
+!i10b 1
+!s100 KLk:3i`YUzh:h82U01BMn3
+IJm@[;@@[d=UbAJEIEHS931
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1743434856
+Z4 8C:/Users/21mw67/Downloads/phase1/add.v
+Z5 FC:/Users/21mw67/Downloads/phase1/add.v
+L0 17
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1743441706.000000
+Z8 !s107 C:/Users/21mw67/Downloads/phase1/add.v|
+Z9 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/21mw67/Downloads/phase1|C:/Users/21mw67/Downloads/phase1/add.v|
+!i113 1
+Z10 o-vlog01compat -work work
+Z11 !s92 -vlog01compat -work work +incdir+C:/Users/21mw67/Downloads/phase1
+Z12 tCvgOpt 0
+valu
+R1
+!i10b 1
+!s100 6zgPGDdW<V[G;>WN^;kL=3
+I`NJ]D]ehl;e=ZPTP?Vk1c3
+R2
+R0
+R3
+8C:/Users/21mw67/Downloads/phase1/alu.v
+FC:/Users/21mw67/Downloads/phase1/alu.v
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/21mw67/Downloads/phase1/alu.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/21mw67/Downloads/phase1|C:/Users/21mw67/Downloads/phase1/alu.v|
+!i113 1
+R10
+R11
+R12
+vbus_mux_32_to_1
+R1
+!i10b 1
+!s100 Mg1`LSo?U`9iVADQeii=>2
+IYOSC]^agA?b`J8a_kd]:P2
+R2
+R0
+R3
+8C:/Users/21mw67/Downloads/phase1/bus_mux_32_to_1.v
+FC:/Users/21mw67/Downloads/phase1/bus_mux_32_to_1.v
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/21mw67/Downloads/phase1/bus_mux_32_to_1.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/21mw67/Downloads/phase1|C:/Users/21mw67/Downloads/phase1/bus_mux_32_to_1.v|
+!i113 1
+R10
+R11
+R12
+vc_sign_extended_reg
+Z13 !s110 1743441707
+!i10b 1
+!s100 UI2[U6=OS5;hiQ9iog2T_0
+IV]mibVnS]OfHY=<61maBe1
+R2
+R0
+Z14 w1743434858
+Z15 8C:/Users/21mw67/Downloads/phase1/registers.v
+Z16 FC:/Users/21mw67/Downloads/phase1/registers.v
+Z17 L0 22
+R6
+r1
+!s85 0
+31
+Z18 !s108 1743441707.000000
+Z19 !s107 C:/Users/21mw67/Downloads/phase1/registers.v|
+Z20 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/21mw67/Downloads/phase1|C:/Users/21mw67/Downloads/phase1/registers.v|
+!i113 1
+R10
+R11
+R12
+vconff
+R1
+!i10b 1
+!s100 Dg4deVWjQ;7N>L8XY7h@R3
+IKjA6O8YTO0;`G1ITc3:=C1
+R2
+R0
+R3
+Z21 8C:/Users/21mw67/Downloads/phase1/conff.v
+Z22 FC:/Users/21mw67/Downloads/phase1/conff.v
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+Z23 !s107 C:/Users/21mw67/Downloads/phase1/conff.v|
+Z24 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/21mw67/Downloads/phase1|C:/Users/21mw67/Downloads/phase1/conff.v|
+!i113 1
+R10
+R11
+R12
+vdatapath
+R13
+!i10b 1
+!s100 cDGhKM;26dHN>FENQQzJO2
+IRjF@4Gm4gGJTRn>2TkC3l2
+R2
+R0
+w1743441151
+8C:/Users/21mw67/Downloads/phase1/datapath.v
+FC:/Users/21mw67/Downloads/phase1/datapath.v
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/21mw67/Downloads/phase1/datapath.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/21mw67/Downloads/phase1|C:/Users/21mw67/Downloads/phase1/datapath.v|
+!i113 1
+R10
+R11
+R12
+vdecoder2to4
+R1
+!i10b 1
+!s100 [fE0ZcP2^Z1^NW<fQjV=U2
+Iz0Tkk4Uz`L[[KAEMZ6KCj1
+R2
+R0
+R3
+R21
+R22
+L0 30
+R6
+r1
+!s85 0
+31
+R7
+R23
+R24
+!i113 1
+R10
+R11
+R12
+vdecoder_4_16
+R1
+!i10b 1
+!s100 kikZii5<KVDCGNRS>2^5_0
+IBfQkM@CQbHMDZ6okV[f:00
+R2
+R0
+R14
+Z25 8C:/Users/21mw67/Downloads/phase1/select_encode_logic.v
+Z26 FC:/Users/21mw67/Downloads/phase1/select_encode_logic.v
+L0 27
+R6
+r1
+!s85 0
+31
+R7
+Z27 !s107 C:/Users/21mw67/Downloads/phase1/select_encode_logic.v|
+Z28 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/21mw67/Downloads/phase1|C:/Users/21mw67/Downloads/phase1/select_encode_logic.v|
+!i113 1
+R10
+R11
+R12
+vdiv
+R1
+!i10b 1
+!s100 3C8g057We??XSl3G<H1IP0
+Ibg?i<d`3AU7V:L>7zamc@3
+R2
+R0
+R3
+8C:/Users/21mw67/Downloads/phase1/div.v
+FC:/Users/21mw67/Downloads/phase1/div.v
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/21mw67/Downloads/phase1/div.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/21mw67/Downloads/phase1|C:/Users/21mw67/Downloads/phase1/div.v|
+!i113 1
+R10
+R11
+R12
+vencoder_32_to_5
+R1
+!i10b 1
+!s100 5SIHbLS>;mblKgX:6MVf_0
+Im[BKl1iAGD<[9;ZlQXL;73
+R2
+R0
+Z29 w1743434857
+8C:/Users/21mw67/Downloads/phase1/encoder_32_to_5.v
+FC:/Users/21mw67/Downloads/phase1/encoder_32_to_5.v
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/21mw67/Downloads/phase1/encoder_32_to_5.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/21mw67/Downloads/phase1|C:/Users/21mw67/Downloads/phase1/encoder_32_to_5.v|
+!i113 1
+R10
+R11
+R12
+vfull_adder
+R1
+!i10b 1
+!s100 HOFhoZUl^dz]nldCY>ZiM3
+I1RdoQL5YBIP^[iSN50WfV2
+R2
+R0
+R3
+R4
+R5
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+vinport
+R1
+!i10b 1
+!s100 BizIf^GbUNIAFDegP`D5f0
+IR1ZQfhH;58JU56gQK7lMk3
+R2
+R0
+R29
+Z30 8C:/Users/21mw67/Downloads/phase1/io_ports.v
+Z31 FC:/Users/21mw67/Downloads/phase1/io_ports.v
+R17
+R6
+r1
+!s85 0
+31
+R7
+Z32 !s107 C:/Users/21mw67/Downloads/phase1/io_ports.v|
+Z33 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/21mw67/Downloads/phase1|C:/Users/21mw67/Downloads/phase1/io_ports.v|
+!i113 1
+R10
+R11
+R12
+vjal_tb
+R13
+!i10b 1
+!s100 25B3n5V8KN^=>DNQj?R4[2
+IGkT5XRNTC]leHCXKTJQGH2
+R2
+R0
+w1743441146
+8C:/Users/21mw67/Downloads/phase1/jal_tb.v
+FC:/Users/21mw67/Downloads/phase1/jal_tb.v
+L0 3
+R6
+r1
+!s85 0
+31
+R18
+!s107 C:/Users/21mw67/Downloads/phase1/jal_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/21mw67/Downloads/phase1|C:/Users/21mw67/Downloads/phase1/jal_tb.v|
+!i113 1
+R10
+R11
+R12
+vlogical_and
+R13
+!i10b 1
+!s100 ]T2:DWKAgDci<0aK^_lIX1
+IQB@4d@7ho<7nMN6HkT_M=1
+R2
+R0
+R29
+Z34 8C:/Users/21mw67/Downloads/phase1/logical_ops.v
+Z35 FC:/Users/21mw67/Downloads/phase1/logical_ops.v
+L0 1
+R6
+r1
+!s85 0
+31
+R18
+Z36 !s107 C:/Users/21mw67/Downloads/phase1/logical_ops.v|
+Z37 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/21mw67/Downloads/phase1|C:/Users/21mw67/Downloads/phase1/logical_ops.v|
+!i113 1
+R10
+R11
+R12
+vlogical_neg
+R13
+!i10b 1
+!s100 LTDh[E^VLjLVM5kmZFZT<3
+IAc]:mU3dnYKb1bBma<3]I0
+R2
+R0
+R29
+R34
+R35
+L0 15
+R6
+r1
+!s85 0
+31
+R18
+R36
+R37
+!i113 1
+R10
+R11
+R12
+vlogical_not
+R13
+!i10b 1
+!s100 ;jc1R:4BhZASnVl]nZ8mD0
+I^lLk>J0D[MUKH`VJOGjSi2
+R2
+R0
+R29
+R34
+R35
+R17
+R6
+r1
+!s85 0
+31
+R18
+R36
+R37
+!i113 1
+R10
+R11
+R12
+vlogical_or
+R13
+!i10b 1
+!s100 gz9P0>MnbJd=D@eQ<ZF1j0
+IXbfMN4Z6POmh<5Nz8Bz;^0
+R2
+R0
+R29
+R34
+R35
+L0 8
+R6
+r1
+!s85 0
+31
+R18
+R36
+R37
+!i113 1
+R10
+R11
+R12
+vmdr_mux_2_to_1
+R1
+!i10b 1
+!s100 gDKSk59DICz[nj5lmmAYU0
+IBebaWzOzQQ=eQS`lo5?Hf2
+R2
+R0
+R29
+8C:/Users/21mw67/Downloads/phase1/mdr_mux_2_to_1.v
+FC:/Users/21mw67/Downloads/phase1/mdr_mux_2_to_1.v
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/21mw67/Downloads/phase1/mdr_mux_2_to_1.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/21mw67/Downloads/phase1|C:/Users/21mw67/Downloads/phase1/mdr_mux_2_to_1.v|
+!i113 1
+R10
+R11
+R12
+vmul
+R1
+!i10b 1
+!s100 [bDodcol^:?OP^oj`65Eg2
+I:;akOfI98gA>fU@VV16<z1
+R2
+R0
+R29
+8C:/Users/21mw67/Downloads/phase1/mul.v
+FC:/Users/21mw67/Downloads/phase1/mul.v
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/21mw67/Downloads/phase1/mul.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/21mw67/Downloads/phase1|C:/Users/21mw67/Downloads/phase1/mul.v|
+!i113 1
+R10
+R11
+R12
+voutport
+R1
+!i10b 1
+!s100 ;0KN<3`4Q?aCDc^SU4SEX2
+IAQ0H4^8zzg7_Rj3O2?Bk[2
+R2
+R0
+R29
+R30
+R31
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+R32
+R33
+!i113 1
+R10
+R11
+R12
+vpc_reg
+R13
+!i10b 1
+!s100 ]oL:dce0R<F<7P4[[]YWz1
+IT]fP2k5OUA[EcAdQn[]iS2
+R2
+R0
+R14
+R15
+R16
+L0 39
+R6
+r1
+!s85 0
+31
+R18
+R19
+R20
+!i113 1
+R10
+R11
+R12
+vr0_reg
+R13
+!i10b 1
+!s100 4L_AFFIE4m@6cc?9?;;501
+I]hOeNbaF02f_[P_n]X75g2
+R2
+R0
+R14
+R15
+R16
+L0 60
+R6
+r1
+!s85 0
+31
+R18
+R19
+R20
+!i113 1
+R10
+R11
+R12
+vram_512x32
+R13
+!i10b 1
+!s100 `9L6R9VT@O6103KS14BH60
+IKZzfKMH`9zWQ47Qn>;<WV3
+R2
+R0
+w1743434942
+8C:/Users/21mw67/Downloads/phase1/ram_512x32.v
+FC:/Users/21mw67/Downloads/phase1/ram_512x32.v
+L0 1
+R6
+r1
+!s85 0
+31
+R18
+!s107 C:/Users/21mw67/Downloads/phase1/ram_512x32.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/21mw67/Downloads/phase1|C:/Users/21mw67/Downloads/phase1/ram_512x32.v|
+!i113 1
+R10
+R11
+R12
+vreg_32_bit
+R13
+!i10b 1
+!s100 `bz56^6S2TCSM@VRdCHo_1
+I`0Sl25_e6^8I>[VI6=@>i1
+R2
+R0
+R14
+R15
+R16
+L0 1
+R6
+r1
+!s85 0
+31
+R18
+R19
+R20
+!i113 1
+R10
+R11
+R12
+vrol
+R13
+!i10b 1
+!s100 mI:Xm8OQOS3;okQkc4h2o3
+IXi;U1>=8IQ6SCTYgC?HB@3
+R2
+R0
+R14
+Z38 8C:/Users/21mw67/Downloads/phase1/rotate_ops.v
+Z39 FC:/Users/21mw67/Downloads/phase1/rotate_ops.v
+L0 2
+R6
+r1
+!s85 0
+31
+R18
+Z40 !s107 C:/Users/21mw67/Downloads/phase1/rotate_ops.v|
+Z41 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/21mw67/Downloads/phase1|C:/Users/21mw67/Downloads/phase1/rotate_ops.v|
+!i113 1
+R10
+R11
+R12
+vror
+R13
+!i10b 1
+!s100 <1VdVKKXKhhA95YZIWKUm0
+IOdX_l6QF?E_I[;01<nEdB0
+R2
+R0
+R14
+R38
+R39
+L0 12
+R6
+r1
+!s85 0
+31
+R18
+R40
+R41
+!i113 1
+R10
+R11
+R12
+vselect_encode_logic
+R1
+!i10b 1
+!s100 KiUXZV:IWUK8KU3FC1mUo0
+IAzUXKGLV4XPZQUJ7@^fmA3
+R2
+R0
+R14
+R25
+R26
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+R27
+R28
+!i113 1
+R10
+R11
+R12
+vshl
+R13
+!i10b 1
+!s100 YboZDh1nREgKX21;L>]Y;0
+IeN``3a?g8`>ecz0=;bo9;1
+R2
+R0
+R14
+Z42 8C:/Users/21mw67/Downloads/phase1/shift_ops.v
+Z43 FC:/Users/21mw67/Downloads/phase1/shift_ops.v
+L0 25
+R6
+r1
+!s85 0
+31
+R18
+Z44 !s107 C:/Users/21mw67/Downloads/phase1/shift_ops.v|
+Z45 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/21mw67/Downloads/phase1|C:/Users/21mw67/Downloads/phase1/shift_ops.v|
+!i113 1
+R10
+R11
+R12
+vshr
+R13
+!i10b 1
+!s100 kzKnic]b<nMDS]OI9JnFl0
+I`<Mm2A``FBCC=M5YP:A1l1
+R2
+R0
+R14
+R42
+R43
+L0 2
+R6
+r1
+!s85 0
+31
+R18
+R44
+R45
+!i113 1
+R10
+R11
+R12
+vshra
+R13
+!i10b 1
+!s100 V[cg^=gYghDeKCIR^M6XS3
+I``]b9[]_1P1[`a[Umz4510
+R2
+R0
+R14
+R42
+R43
+L0 10
+R6
+r1
+!s85 0
+31
+R18
+R44
+R45
+!i113 1
+R10
+R11
+R12
+vsub
+R1
+!i10b 1
+!s100 >5fn;CZO2n72?P_3M:Se83
+I4RSL?mo<bK5FW:H<zO50`3
+R2
+R0
+R14
+8C:/Users/21mw67/Downloads/phase1/sub.v
+FC:/Users/21mw67/Downloads/phase1/sub.v
+L0 3
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/21mw67/Downloads/phase1/sub.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/21mw67/Downloads/phase1|C:/Users/21mw67/Downloads/phase1/sub.v|
+!i113 1
+R10
+R11
+R12

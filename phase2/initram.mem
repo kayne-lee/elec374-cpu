@@ -1,6 +1,6 @@
 // Created with SRC-ASM (https://github.com/davlaf/elec374-assembler)
-  @0 0800ABCD //ldiLO, 0xabcd
-  @1 C1000000 // mflo R2 
+  @0 0A80000F // ldi r5, 0xf       
+  @1 A2800000 // jal r5   
   @2 00000000
   @3 00000000
   @4 00000000

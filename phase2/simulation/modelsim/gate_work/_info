@@ -1,0 +1,32 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/21kl78/Downloads/phase1/simulation/modelsim
+vdatapath
+!s110 1743106736
+!i10b 1
+!s100 LTVUUF5NJ09o51E5H25E01
+Ic<Bo`4PAXQ?dh3hOgj;EU2
+VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1743106520
+8CPUDesign.vo
+FCPUDesign.vo
+L0 31
+OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1743106733.000000
+!s107 CPUDesign.vo|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+.|CPUDesign.vo|
+!i113 1
+o-vlog01compat -work work
+!s92 -vlog01compat -work work +incdir+.
+tCvgOpt 0

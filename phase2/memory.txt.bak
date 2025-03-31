@@ -1,0 +1,39 @@
+brzr case: (loads 0 into R5, branches cause = 0)
+ldi R5, 0x0         // 00001_0101_0000_0000000000000000000
+brzr R5             // 10011_0101_0000_0000000000000001110
+HEX:
+0A800000
+9A80000E
+
+brnz case: (loads 0 into R5, does not branch cause = 0)
+ldi R5, 0x0         // 00001_0101_0000_0000000000000000000
+brnz R5             // 10011_0101_0001_0000000000000001110
+HEX:
+0A800000
+9A88000E
+
+brpl case: (loads 0 into R5, branches because >= 0)
+ldi R5, 0x0         // 00001_0101_0000_0000000000000000000
+brpl R5             // 10011_0101_0010_0000000000000001110
+HEX:
+0A800000
+9A90000E
+
+brmi case: (loads 0 into R5, does not branch because >= 0)
+ldi R5, 0x0         // 00001_0101_0000_0000000000000000000
+brmi R5             // 10011_0101_0011_0000000000000001110
+HEX:
+0A800000
+9A98000E
+
+out case: (loads 0xbeef into R3, loads [R3] into outport)
+ldi R3, 0xbeef      // 00001_0011_0000_0001011111011101111
+out R3              // 10111_0011_0000_0000000000000000000
+HEX:
+0980BEEF
+B9800000
+
+in case: (inport is preloaded with 0xbeef, then loads [inport] into R4)
+in R4               // 10110_0100_0000_0000000000000000000
+HEX:
+B2000000

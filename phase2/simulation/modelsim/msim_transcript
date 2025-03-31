@@ -1,0 +1,292 @@
+# Reading C:/intelFPGA/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# do CPUDesign_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/21mw67/Downloads/phase1 {C:/Users/21mw67/Downloads/phase1/select_encode_logic.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:21:46 on Mar 31,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/21mw67/Downloads/phase1" C:/Users/21mw67/Downloads/phase1/select_encode_logic.v 
+# -- Compiling module select_encode_logic
+# -- Compiling module decoder_4_16
+# 
+# Top level modules:
+# 	select_encode_logic
+# End time: 13:21:46 on Mar 31,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/21mw67/Downloads/phase1 {C:/Users/21mw67/Downloads/phase1/io_ports.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:21:46 on Mar 31,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/21mw67/Downloads/phase1" C:/Users/21mw67/Downloads/phase1/io_ports.v 
+# -- Compiling module outport
+# -- Compiling module inport
+# 
+# Top level modules:
+# 	outport
+# 	inport
+# End time: 13:21:46 on Mar 31,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/21mw67/Downloads/phase1 {C:/Users/21mw67/Downloads/phase1/conff.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:21:46 on Mar 31,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/21mw67/Downloads/phase1" C:/Users/21mw67/Downloads/phase1/conff.v 
+# -- Compiling module conff
+# -- Compiling module decoder2to4
+# 
+# Top level modules:
+# 	conff
+# End time: 13:21:46 on Mar 31,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/21mw67/Downloads/phase1 {C:/Users/21mw67/Downloads/phase1/add.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:21:46 on Mar 31,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/21mw67/Downloads/phase1" C:/Users/21mw67/Downloads/phase1/add.v 
+# -- Compiling module full_adder
+# -- Compiling module add
+# 
+# Top level modules:
+# 	add
+# End time: 13:21:46 on Mar 31,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/21mw67/Downloads/phase1 {C:/Users/21mw67/Downloads/phase1/sub.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:21:46 on Mar 31,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/21mw67/Downloads/phase1" C:/Users/21mw67/Downloads/phase1/sub.v 
+# -- Compiling module sub
+# 
+# Top level modules:
+# 	sub
+# End time: 13:21:46 on Mar 31,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/21mw67/Downloads/phase1 {C:/Users/21mw67/Downloads/phase1/mul.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:21:46 on Mar 31,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/21mw67/Downloads/phase1" C:/Users/21mw67/Downloads/phase1/mul.v 
+# -- Compiling module mul
+# 
+# Top level modules:
+# 	mul
+# End time: 13:21:46 on Mar 31,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/21mw67/Downloads/phase1 {C:/Users/21mw67/Downloads/phase1/div.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:21:46 on Mar 31,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/21mw67/Downloads/phase1" C:/Users/21mw67/Downloads/phase1/div.v 
+# -- Compiling module div
+# 
+# Top level modules:
+# 	div
+# End time: 13:21:46 on Mar 31,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/21mw67/Downloads/phase1 {C:/Users/21mw67/Downloads/phase1/alu.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:21:46 on Mar 31,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/21mw67/Downloads/phase1" C:/Users/21mw67/Downloads/phase1/alu.v 
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 13:21:46 on Mar 31,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/21mw67/Downloads/phase1 {C:/Users/21mw67/Downloads/phase1/bus_mux_32_to_1.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:21:46 on Mar 31,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/21mw67/Downloads/phase1" C:/Users/21mw67/Downloads/phase1/bus_mux_32_to_1.v 
+# -- Compiling module bus_mux_32_to_1
+# 
+# Top level modules:
+# 	bus_mux_32_to_1
+# End time: 13:21:46 on Mar 31,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/21mw67/Downloads/phase1 {C:/Users/21mw67/Downloads/phase1/encoder_32_to_5.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:21:46 on Mar 31,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/21mw67/Downloads/phase1" C:/Users/21mw67/Downloads/phase1/encoder_32_to_5.v 
+# -- Compiling module encoder_32_to_5
+# 
+# Top level modules:
+# 	encoder_32_to_5
+# End time: 13:21:46 on Mar 31,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/21mw67/Downloads/phase1 {C:/Users/21mw67/Downloads/phase1/mdr_mux_2_to_1.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:21:46 on Mar 31,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/21mw67/Downloads/phase1" C:/Users/21mw67/Downloads/phase1/mdr_mux_2_to_1.v 
+# -- Compiling module mdr_mux_2_to_1
+# 
+# Top level modules:
+# 	mdr_mux_2_to_1
+# End time: 13:21:46 on Mar 31,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/21mw67/Downloads/phase1 {C:/Users/21mw67/Downloads/phase1/datapath.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:21:46 on Mar 31,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/21mw67/Downloads/phase1" C:/Users/21mw67/Downloads/phase1/datapath.v 
+# -- Compiling module datapath
+# 
+# Top level modules:
+# 	datapath
+# End time: 13:21:47 on Mar 31,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/21mw67/Downloads/phase1 {C:/Users/21mw67/Downloads/phase1/logical_ops.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:21:47 on Mar 31,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/21mw67/Downloads/phase1" C:/Users/21mw67/Downloads/phase1/logical_ops.v 
+# -- Compiling module logical_and
+# -- Compiling module logical_or
+# -- Compiling module logical_neg
+# -- Compiling module logical_not
+# 
+# Top level modules:
+# 	logical_and
+# 	logical_or
+# 	logical_neg
+# 	logical_not
+# End time: 13:21:47 on Mar 31,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/21mw67/Downloads/phase1 {C:/Users/21mw67/Downloads/phase1/rotate_ops.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:21:47 on Mar 31,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/21mw67/Downloads/phase1" C:/Users/21mw67/Downloads/phase1/rotate_ops.v 
+# -- Compiling module rol
+# -- Compiling module ror
+# 
+# Top level modules:
+# 	rol
+# 	ror
+# End time: 13:21:47 on Mar 31,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/21mw67/Downloads/phase1 {C:/Users/21mw67/Downloads/phase1/shift_ops.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:21:47 on Mar 31,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/21mw67/Downloads/phase1" C:/Users/21mw67/Downloads/phase1/shift_ops.v 
+# -- Compiling module shr
+# -- Compiling module shra
+# -- Compiling module shl
+# 
+# Top level modules:
+# 	shr
+# 	shra
+# 	shl
+# End time: 13:21:47 on Mar 31,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/21mw67/Downloads/phase1 {C:/Users/21mw67/Downloads/phase1/registers.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:21:47 on Mar 31,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/21mw67/Downloads/phase1" C:/Users/21mw67/Downloads/phase1/registers.v 
+# -- Compiling module reg_32_bit
+# -- Compiling module c_sign_extended_reg
+# -- Compiling module pc_reg
+# -- Compiling module r0_reg
+# 
+# Top level modules:
+# 	c_sign_extended_reg
+# 	pc_reg
+# 	r0_reg
+# End time: 13:21:47 on Mar 31,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/21mw67/Downloads/phase1 {C:/Users/21mw67/Downloads/phase1/ram_512x32.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:21:47 on Mar 31,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/21mw67/Downloads/phase1" C:/Users/21mw67/Downloads/phase1/ram_512x32.v 
+# -- Compiling module ram_512x32
+# 
+# Top level modules:
+# 	ram_512x32
+# End time: 13:21:47 on Mar 31,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/21mw67/Downloads/phase1 {C:/Users/21mw67/Downloads/phase1/jal_tb.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:21:47 on Mar 31,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/21mw67/Downloads/phase1" C:/Users/21mw67/Downloads/phase1/jal_tb.v 
+# -- Compiling module jal_tb
+# 
+# Top level modules:
+# 	jal_tb
+# End time: 13:21:47 on Mar 31,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  jal_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" jal_tb 
+# Start time: 13:21:47 on Mar 31,2025
+# Loading work.jal_tb
+# Loading work.datapath
+# Loading work.r0_reg
+# Loading work.reg_32_bit
+# Loading work.c_sign_extended_reg
+# Loading work.pc_reg
+# Loading work.ram_512x32
+# Loading work.inport
+# Loading work.outport
+# Loading work.mdr_mux_2_to_1
+# Loading work.conff
+# Loading work.decoder2to4
+# Loading work.select_encode_logic
+# Loading work.decoder_4_16
+# Loading work.encoder_32_to_5
+# Loading work.alu
+# Loading work.logical_and
+# Loading work.logical_or
+# Loading work.add
+# Loading work.full_adder
+# Loading work.sub
+# Loading work.mul
+# Loading work.div
+# Loading work.shr
+# Loading work.shra
+# Loading work.shl
+# Loading work.ror
+# Loading work.rol
+# Loading work.logical_neg
+# Loading work.logical_not
+# Loading work.bus_mux_32_to_1
+# ** Warning: (vsim-3017) C:/Users/21mw67/Downloads/phase1/jal_tb.v(38): [TFMPC] - Too few port connections. Expected 35, found 33.
+#    Time: 0 ps  Iteration: 0  Instance: /jal_tb/DUT File: C:/Users/21mw67/Downloads/phase1/datapath.v
+# ** Warning: (vsim-3722) C:/Users/21mw67/Downloads/phase1/jal_tb.v(38): [TFMPC] - Missing connection for port 'inport_in'.
+# ** Warning: (vsim-3722) C:/Users/21mw67/Downloads/phase1/jal_tb.v(38): [TFMPC] - Missing connection for port 'outport_data'.
+# ** Warning: (vsim-3015) C:/Users/21mw67/Downloads/phase1/datapath.v(167): [PCDPC] - Port size (9) does not match connection size (32) for port 'addr'. The port definition is at: C:/Users/21mw67/Downloads/phase1/ram_512x32.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /jal_tb/DUT/ram_memory File: C:/Users/21mw67/Downloads/phase1/ram_512x32.v
+# ** Warning: (vsim-3015) C:/Users/21mw67/Downloads/phase1/alu.v(27): [PCDPC] - Port size (1) does not match connection size (32) for port 'cin'. The port definition is at: C:/Users/21mw67/Downloads/phase1/add.v(20).
+#    Time: 0 ps  Iteration: 0  Instance: /jal_tb/DUT/alu/add_op File: C:/Users/21mw67/Downloads/phase1/add.v
+# ** Warning: (vsim-3015) C:/Users/21mw67/Downloads/phase1/alu.v(28): [PCDPC] - Port size (1) does not match connection size (32) for port 'cin'. The port definition is at: C:/Users/21mw67/Downloads/phase1/sub.v(6).
+#    Time: 0 ps  Iteration: 0  Instance: /jal_tb/DUT/alu/sub_op File: C:/Users/21mw67/Downloads/phase1/sub.v
+# ** Warning: (vsim-3015) C:/Users/21mw67/Downloads/phase1/alu.v(34): [PCDPC] - Port size (5) does not match connection size (32) for port 'b'. The port definition is at: C:/Users/21mw67/Downloads/phase1/rotate_ops.v(12).
+#    Time: 0 ps  Iteration: 0  Instance: /jal_tb/DUT/alu/ror_op File: C:/Users/21mw67/Downloads/phase1/rotate_ops.v
+# ** Warning: (vsim-3015) C:/Users/21mw67/Downloads/phase1/alu.v(35): [PCDPC] - Port size (5) does not match connection size (32) for port 'b'. The port definition is at: C:/Users/21mw67/Downloads/phase1/rotate_ops.v(2).
+#    Time: 0 ps  Iteration: 0  Instance: /jal_tb/DUT/alu/rol_op File: C:/Users/21mw67/Downloads/phase1/rotate_ops.v
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run 600 ns
+add wave -position end  sim:/jal_tb/DUT/r8/q
+add wave -position end  sim:/jal_tb/DUT/r5/q
+add wave -position end  sim:/jal_tb/DUT/pc/q
+restart
+# ** Warning: (vsim-3017) C:/Users/21mw67/Downloads/phase1/jal_tb.v(38): [TFMPC] - Too few port connections. Expected 35, found 33.
+#    Time: 0 ps  Iteration: 0  Instance: /jal_tb/DUT File: C:/Users/21mw67/Downloads/phase1/datapath.v
+# ** Warning: (vsim-3722) C:/Users/21mw67/Downloads/phase1/jal_tb.v(38): [TFMPC] - Missing connection for port 'inport_in'.
+# ** Warning: (vsim-3722) C:/Users/21mw67/Downloads/phase1/jal_tb.v(38): [TFMPC] - Missing connection for port 'outport_data'.
+# ** Warning: (vsim-3015) C:/Users/21mw67/Downloads/phase1/datapath.v(167): [PCDPC] - Port size (9) does not match connection size (32) for port 'addr'. The port definition is at: C:/Users/21mw67/Downloads/phase1/ram_512x32.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /jal_tb/DUT/ram_memory File: C:/Users/21mw67/Downloads/phase1/ram_512x32.v
+# ** Warning: (vsim-3015) C:/Users/21mw67/Downloads/phase1/alu.v(27): [PCDPC] - Port size (1) does not match connection size (32) for port 'cin'. The port definition is at: C:/Users/21mw67/Downloads/phase1/add.v(20).
+#    Time: 0 ps  Iteration: 0  Instance: /jal_tb/DUT/alu/add_op File: C:/Users/21mw67/Downloads/phase1/add.v
+# ** Warning: (vsim-3015) C:/Users/21mw67/Downloads/phase1/alu.v(28): [PCDPC] - Port size (1) does not match connection size (32) for port 'cin'. The port definition is at: C:/Users/21mw67/Downloads/phase1/sub.v(6).
+#    Time: 0 ps  Iteration: 0  Instance: /jal_tb/DUT/alu/sub_op File: C:/Users/21mw67/Downloads/phase1/sub.v
+# ** Warning: (vsim-3015) C:/Users/21mw67/Downloads/phase1/alu.v(34): [PCDPC] - Port size (5) does not match connection size (32) for port 'b'. The port definition is at: C:/Users/21mw67/Downloads/phase1/rotate_ops.v(12).
+#    Time: 0 ps  Iteration: 0  Instance: /jal_tb/DUT/alu/ror_op File: C:/Users/21mw67/Downloads/phase1/rotate_ops.v
+# ** Warning: (vsim-3015) C:/Users/21mw67/Downloads/phase1/alu.v(35): [PCDPC] - Port size (5) does not match connection size (32) for port 'b'. The port definition is at: C:/Users/21mw67/Downloads/phase1/rotate_ops.v(2).
+#    Time: 0 ps  Iteration: 0  Instance: /jal_tb/DUT/alu/rol_op File: C:/Users/21mw67/Downloads/phase1/rotate_ops.v
+run 500ns
+# End time: 13:41:27 on Mar 31,2025, Elapsed time: 0:19:40
+# Errors: 0, Warnings: 16

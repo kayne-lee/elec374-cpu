@@ -10,7 +10,7 @@ module ram_512x32 (
     reg [31:0] memory [0:511]; // 512 x 32-bit memory
 
     initial begin 
-          $readmemh("C:\\Users\\21kl78\\Downloads\\phase1\\initram.mem", memory);
+          $readmemh("C:/Users/21mw67/Downloads/phase1/initram.mem", memory);
 
     end
 
