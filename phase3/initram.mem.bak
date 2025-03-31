@@ -1,0 +1,9 @@
+// memory data file (do not edit the following line - required for mem load use)
+// instance=/st_tb/DUT/Memory/ram/mem
+// format=hex addressradix=h dataradix=h version=1.0 wordsperline=1 noaddress
+0A00000F // load into this memory
+61A7FFFB // addi
+0A00000F
+71A00053 // ori
+0A00000F
+61A7FFFB // andi

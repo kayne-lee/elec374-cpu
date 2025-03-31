@@ -1,0 +1,68 @@
+brzr case (branch if zero, change from 0 to 1 to check different cases):
+  @0 08800001 // ldi R1, 0x1       
+  @1 9880001B // brzr R1, 27    
+  
+  if you change the 1 to a 0 PC jumps to 29
+
+brnz case (branch if not zero, change from 0 to 1 to check different cases):
+  @0 08800001 // ldi R1, 0x0       
+  @1 9888001B // brnz R1, 27  
+
+brpl case (branch if plus, change from 0 to -1 to check different cases):
+  @0 08800001 // ldi R1, 0x1       
+  @1 9890001B // brpl R1, 27    
+
+brmi case (branch if negative, change from 1 to -1 to check different cases):
+  @0 088FFFFF     
+  @1 9898001B // brpl R1, 27    
+
+out case:
+  @0 0B00ABCD // ldi R6, 0x0000ABCD
+  @1 BB000000 // out R6  
+
+in case (preload with 0x0000ABCD):
+  @0 B1800000 // in R3             
+  @1 00000000
+  
+addi:
+  @0 0B100063 // ldi R6, 0x63(R2)  
+  @1 62B7FFF9 // addi R5, R6, -7  
+
+andi:
+  @0 0B100063 // ldi R6, 0x63(R2)  
+  @1 6AB00095 // andi R5, R6, 0x95 
+  
+ori:
+  @0 0B100063 // ldi R6, 0x63(R2)  
+  @1 72B00095 // ori R5, R6, 0x95  
+  
+mfhi:
+  @0 0800ABCD //ldi HI, 0xabcd
+  @1 C9800000 // mfhi R3 
+
+mflo:
+  @0 0800ABCD //ldiLO, 0xabcd
+  @1 C1000000 // mflo R2 
+  
+ldi case 1 and 2:
+ @0 0A000054 // ldi R4, 0x54
+ @1 0B100063 // ldi R6, 0x63(R2)  ; R2 = 0x78
+ 
+ 
+add wave -position end  sim:/control_unit_tb/DUT/r0/q
+add wave -position end  sim:/control_unit_tb/DUT/r1/q
+add wave -position end  sim:/control_unit_tb/DUT/r2/q
+add wave -position end  sim:/control_unit_tb/DUT/r3/q
+add wave -position end  sim:/control_unit_tb/DUT/r4/q
+add wave -position end  sim:/control_unit_tb/DUT/r5/q
+add wave -position end  sim:/control_unit_tb/DUT/r6/q
+add wave -position end  sim:/control_unit_tb/DUT/r7/q
+add wave -position end  sim:/control_unit_tb/DUT/r8/q
+add wave -position end  sim:/control_unit_tb/DUT/r9/q
+add wave -position end  sim:/control_unit_tb/DUT/r10/q
+add wave -position end  sim:/control_unit_tb/DUT/r11/q
+add wave -position end  sim:/control_unit_tb/DUT/r12/q
+add wave -position end  sim:/control_unit_tb/DUT/r13/q
+add wave -position end  sim:/control_unit_tb/DUT/r14/q
+add wave -position end  sim:/control_unit_tb/DUT/r15/q
+add wave -position end  sim:/control_unit_tb/DUT/ram_memory/memory[92]
