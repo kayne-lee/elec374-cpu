@@ -13,17 +13,18 @@
   @B 9A100002 // brpl  R4, 2       ; continue with the instruction at “target” (will branch)
   @C 0B180007 // ldi   R6, 7(R3)   ; this instruction will not execute
   @D 0AB7FFFC // ldi   R5, -4(R6)  ; this instruction will not execute
+//   target:
   @E 19988000 // add   R3, R3, R1  ; R3 = 0x5D
   @F 62200002 // addi  R4, R4, 2   ; R4 = 0x99
  @10 8A200000 // neg   R4, R4      ; R4 = 0xFFFFFF67
  @11 92200000 // not   R4, R4      ; R4 = 0x98
  @12 6A20000F // andi  R4, R4, 0xF ; R4 = 8
- @13 01000053 // ror   R2, R0, R1  ; R2 = 0xC0000008
+ @13 39008000 // ror   R2, R0, R1  ; R2 = 0xC0000008
  @14 72100007 // ori   R4, R2, 7   ; R4 = 0xC000000F
- @15 01000052 // shra  R2, R4, R1  ; R2 = 0xF8000001
- @16 0980000B // shr   R3, R3, R1  ; R3 = 0xB
+ @15 51208000 // shra  R2, R4, R1  ; R2 = 0xF8000001
+ @16 49988000 // shr   R3, R3, R1  ; R3 = 0xB
  @17 11800092 // st    0x92, R3    ; (0x92) = 0xB new value in memory with address 0x92
- @18 09800230 // rol   R3, R0, R1  ; R3 = 0x230
+ @18 41808000 // rol   R3, R0, R1  ; R3 = 0x230
  @19 32880000 // or    R5, R1, R0  ; R5 = 0x47
  @1A 29180000 // and   R2, R3, R0  ; R2 = 0
  @1B 12900054 // st    0x54(R2), R5; (0x54) = 0x47 new value in memory with address 0x54
@@ -35,10 +36,10 @@
  @21 CA000000 // mfhi  R4          ; R4 = 0
  @22 C3800000 // mflo  R7          ; R7 = 0xB8
  @23 7B280000 // div   R6, R5      ; HI = 7, LO = 2
- @24 0D000009 // ldi   R10, 0x9    ; R10 = 9 setting up argument registers
- @25 0D800014 // ldi   R11, 0x14   ; R11 = 0x14 R10, R11, R12, and R13
- @26 0E0000B9 // ldi   R12, 0xB9   ; R12 = 0xB9
- @27 0E800004 // ldi   R13, 0x4    ; R13 = 4
+ @24 0D280001 // ldi   R10, 1(R5)  ; R10 = 9 setting up argument registers
+ @25 0DB7FFFD // ldi   R11, -3(R6) ; R11 = 0x14 R10, R11, R12, and R13
+ @26 0E380001 // ldi   R12, 1(R7)  ; R12 = 0xB9
+ @27 0EA00004 // ldi   R13, 4(R4)  ; R13 = 4
  @28 A6000000 // jal   R12         ; address of subroutine subA in R12 - return address in R8
  @29 D8000000 // halt              ; upon return, the program halts
  @2A 00000000
@@ -81,8 +82,8 @@
  @4F 00000000
  @50 00000000
  @51 00000000
- @52 F8000001
- @53 C0000008
+ @52 00000000
+ @53 00000000
  @54 00000097 // WORD  0x97        ; initialize memory as asked
  @55 00000000
  @56 00000000
