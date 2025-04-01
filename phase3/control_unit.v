@@ -40,7 +40,7 @@ module control_unit (
     output reg y_clr,
     output reg ir_clr,
     output reg clr,
-    output reg r15_enable
+    output reg r8_enable
 );
 
 // operation opcodes
