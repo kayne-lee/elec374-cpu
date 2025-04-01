@@ -10,15 +10,14 @@ wire [31:0] bus;
 wire [31:0] mdr_connection;
 wire [63:0] alu_out;
 
-// From phase 2
 wire [4:0] op_code;
-wire [15:0] r0_15in; // A 16-bit wide signal, where each bit represents an enable signal for a register.
-wire [15:0] r0_15out; // A 16-bit wide signal, where each bit represents an out signal for a register.
-wire [31:0] c_sign_extended_connection; // wire to connect select and encode logic to c_sign_extended
-wire [31:0] m_data_in; // wire to connect ram to mdr_mux => mdr
-wire con_out; // output of conff
+wire [15:0] r0_15in;
+wire [15:0] r0_15out; 
+wire [31:0] c_sign_extended_connection; 
+wire [31:0] m_data_in; 
+wire con_out; 
 
-// Register enable signals
+//register enables
 wire r0_enable;
 wire r1_enable;
 wire r2_enable;
@@ -45,7 +44,7 @@ wire mdr_enable;
 wire ir_enable;
 wire c_sign_extended_enable;
 
-// Register output flags
+//register signals
 wire r0_out = 0;
 wire r1_out = 0;
 wire r2_out = 0;
@@ -62,18 +61,10 @@ wire r12_out = 0;
 wire r13_out = 0;
 wire r14_out = 0;
 wire r15_out = 0;
-// wire pc_out = 0;
 wire y_out = 0;
-// wire hi_out = 0;
-// wire lo_out = 0;
-// wire zhi_out = 0;
-// wire zlo_out = 0;
 wire mar_out = 0;
-// wire mdr_out = 0;
-// wire inport_out = 0;
-// wire c_sign_extended_out = 0;
 
-// Register output data wires (connect to the bus)
+//register output
 wire [31:0] r0_data;
 wire [31:0] r1_data;
 wire [31:0] r2_data;
@@ -102,8 +93,7 @@ wire [31:0] inport_data;
 wire [31:0] c_sign_extended_data;
 wire [31:0] ir_data;
 
-
-// Instantiate register modules
+// instantiate registers
 r0_reg r0(clk, clr, r0_15in[0], ba_out, bus, r0_data);
 reg_32_bit r1(clk, clr, r0_15in[1], bus, r1_data);
 reg_32_bit r2(clk, clr, r0_15in[2], bus, r2_data);
@@ -119,8 +109,7 @@ reg_32_bit r11(clk, clr, r0_15in[11], bus, r11_data);
 reg_32_bit r12(clk, clr, r0_15in[12], bus, r12_data);
 reg_32_bit r13(clk, clr, r0_15in[13], bus, r13_data);
 reg_32_bit r14(clk, clr, r0_15in[14], bus, r14_data);
-reg_32_bit r15(clk, clr, r15_enable, bus, r15_data);    // FIXME: r15_enable is temporary for phase 2
-
+reg_32_bit r15(clk, clr, r15_enable, bus, r15_data); 
 reg_32_bit y(clk, y_clr, y_enable, bus, y_data);
 reg_32_bit hi(clk, clr, hi_enable, bus, hi_data);
 reg_32_bit lo(clk, clr, lo_enable, bus, lo_data);
@@ -132,7 +121,7 @@ reg_32_bit mdr(clk, clr, mdr_enable, mdr_connection, mdr_data);
 c_sign_extended_reg c_sign_extended(clk, clr, c_sign_extended_connection, c_sign_extended_data);
 pc_reg pc(clk, pc_enable, pc_increment, bus, pc_data);
 
-// Instantiate Control Unit
+//instantiate control
 control_unit control_unit(
     .clk(clk),
     .reset(reset),
@@ -176,7 +165,7 @@ control_unit control_unit(
     .r15_enable(r15_enable)
 );
 
-// Instantiate RAM, SEE IF THESE ARE THE RIGHT CONNECTIONS
+//instantiate ram
 ram_512x32 ram_memory(
     .clk(clk),
     .addr(mar_data),
@@ -186,20 +175,10 @@ ram_512x32 ram_memory(
 );
 
 
-// Instantiate I/O ports
+//instantiate inport & outport
 inport inport(clk, clr, inport_enable, inport_in, inport_data);
 outport outport(clk, clr, outport_enable, bus, outport_data);
-
-
-// Instantiate MDR Mux
-mdr_mux_2_to_1 mdr_mux(
-    .out(mdr_connection),
-    .read(read),
-    .from_bus(bus),
-    .from_mem_chip(m_data_in)
-);
-
-// TODO: Instantiate CON FF Logic
+    
 conff conff(
     .bus(bus),
     .c2(ir_data[22:19]),
@@ -207,7 +186,14 @@ conff conff(
     .condition(con_out)
 );
 
-// Instantiate select and encode logic
+//instantiate mdr mux
+mdr_mux_2_to_1 mdr_mux(
+    .out(mdr_connection),
+    .read(read),
+    .from_bus(bus),
+    .from_mem_chip(m_data_in)
+);
+//instantiate select and encode
 select_encode_logic select_encode(
     .ir(ir_data),
     .gra(gra),
@@ -222,7 +208,7 @@ select_encode_logic select_encode(
     .c_sign_extended(c_sign_extended_connection)
 );
 
-// Instantiate Select Signal Encoder and select signal 
+//instantiate select
 wire [31:0] select;
 wire [4:0] select_encoded;
 
@@ -259,7 +245,7 @@ encoder_32_to_5 select_encoder(
     .encoder_out(select_encoded)
 );
 
-// Instantiate ALU
+//instantiate alu
 alu alu(
     .c(alu_out),
     .op_code(op_code),
@@ -268,7 +254,7 @@ alu alu(
     .clk(clk)
 );
 
-// Instantiate Bus Mux
+//instantiate bus mux
 bus_mux_32_to_1 bus_mux(
     .bus_mux_out(bus),
     .select_signal(select_encoded),
