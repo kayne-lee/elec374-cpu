@@ -10,9 +10,7 @@ module control_unit (
     output reg inport_out,
     output reg read,
     output reg ram_write,
-    // operations
 
-    // signals
     output reg hi_enable,
     output reg lo_enable,
     output reg con_enable,
@@ -23,7 +21,7 @@ module control_unit (
     output reg mar_enable,
     output reg mdr_enable,
     output reg outport_enable,
-    output reg c_sign_extended_out, // cout?
+    output reg c_sign_extended_out,
     output reg ba_out,
 
     output reg gra,
@@ -45,7 +43,7 @@ module control_unit (
     output reg r15_enable
 );
 
-// Opcodes for operations
+// operation opcodes
 localparam ld_opcode = 5'b00000;
 localparam ldi_opcode = 5'b00001;
 localparam st_opcode = 5'b00010;
@@ -74,7 +72,7 @@ localparam mfhi_opcode = 5'b11000;
 localparam mflo_opcode = 5'b11001;
 localparam nop_opcode = 5'b11010;
 
-// FSM signals
+// signals
 parameter reset_state = 6'b000000;
 parameter fetch0 = 6'b000001;
 parameter fetch1 = 6'b000010;
@@ -130,10 +128,7 @@ parameter jal3 = 6'b110011;          // jal
 parameter jal4 = 6'b110100;
 parameter jr3 = 6'b110101;           // jr
 
-
-
 reg [5:0] present_state = reset_state;
-
 
 reg toggle = 0; // Initialize the toggle flip-flop
 always @(posedge clk, posedge reset) begin
@@ -142,8 +137,8 @@ always @(posedge clk, posedge reset) begin
         toggle <= 0; // Reset the toggle to 0 on reset
     end
     else begin
-        toggle <= ~toggle; // Toggle the flip-flop on each clock edge
-        if (toggle) begin // Proceed with state transitions only when toggle is high
+        toggle <= ~toggle; // toggle the flip-flop on each clock edge
+	    if (toggle) begin // proceed with state transitions only when toggle is high
             case (present_state)
                 reset_state: present_state <= fetch0;
                 fetch0: present_state <= fetch1;
@@ -175,11 +170,9 @@ always @(posedge clk, posedge reset) begin
                         mflo_opcode:    present_state <= mflo3;
                         jal_opcode:     present_state <= jal3;
                         jr_opcode:      present_state <= jr3;
-                        // TODO: Additional opcodes
 
                     endcase
                 end
-                // Continue with other states as before
                 // ld
                 ld3: present_state <= ld4;
                 ld4: present_state <= ld5;
@@ -245,11 +238,8 @@ always @(posedge clk, posedge reset) begin
                 jal4: present_state <= fetch0;
                 // jr
                 jr3: present_state <= fetch0;
-                // TODO: FILL IN PRESENT STATES EX: add_sub3: present_state <= add_sub4;
-                // Make sure to use non-blocking assignments (<=) within always blocks
             endcase
         end
-        // When toggle is low, do not change the present_state
     end
 end
 
@@ -288,8 +278,8 @@ begin
             #20 clr = 0;
         end
 		fetch0: begin
-			pc_out <= 1; mar_enable <= 1; pc_increment <= 1; ir_clr <= 1; y_clr <= 1; //ir_clr???? maybe add y_clr too
-			#20 mar_enable <= 0; pc_increment <= 0; ir_clr <= 0; y_clr <= 0; z_enable <= 1; //ir_clr????
+			pc_out <= 1; mar_enable <= 1; pc_increment <= 1; ir_clr <= 1; y_clr <= 1; 
+			#20 mar_enable <= 0; pc_increment <= 0; ir_clr <= 0; y_clr <= 0; z_enable <= 1; 
 			#20 pc_out <= 0; z_enable <= 0;
 		end
 		fetch1: begin
@@ -534,7 +524,6 @@ begin
             gra <= 1; r_out <= 1; pc_enable <= 1;
 			#20 gra <= 0; r_out <= 0; pc_enable <= 0;
         end
-        // TODO: FILL IN JOBS
     endcase
 end
 endmodule
