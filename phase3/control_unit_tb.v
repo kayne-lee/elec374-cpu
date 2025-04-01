@@ -5,11 +5,10 @@ reg reset;
 reg stop;
 reg [31:0] inport_in;
 wire [31:0] outport_data;
-
 reg clk;
 reg clr;
 
-// Instantiate the DUT
+// instantiate DUT
 datapath DUT(
 	.clk(clk),
 	.reset(reset),
@@ -18,7 +17,7 @@ datapath DUT(
     .outport_data(outport_data)
 );
 
-// Initialize the clock signals
+// initialize clock
 initial begin
 	clk = 0;
 	forever #10 clk = ~ clk;
