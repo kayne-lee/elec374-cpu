@@ -93,7 +93,7 @@ wire [31:0] inport_data;
 wire [31:0] c_sign_extended_data;
 wire [31:0] ir_data;
 
-// instantiate registers
+//instantiate registers
 r0_reg r0(clk, clr, r0_15in[0], ba_out, bus, r0_data);
 reg_32_bit r1(clk, clr, r0_15in[1], bus, r1_data);
 reg_32_bit r2(clk, clr, r0_15in[2], bus, r2_data);
