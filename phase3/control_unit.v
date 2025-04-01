@@ -512,8 +512,8 @@ begin
 		end
         // jal instruction
         jal3: begin	
-			pc_out <= 1; r15_enable <= 1;
-            #20 pc_out <= 0; r15_enable <= 0;
+			pc_out <= 1; r8_enable <= 1;
+            #20 pc_out <= 0; r8_enable <= 0;
 		end
         jal4: begin
             pc_enable <= 1; gra <= 1; r_out <= 1;
